@@ -1,0 +1,77 @@
+<ion-view view-title="Promociòn">
+  <style>
+  .social .item-body {
+      padding: 10px 10px 63px; !important
+  }
+
+
+
+
+
+.card, .list-inset {
+    overflow: hidden;
+    margin: 20px 10px;
+    /* border-radius: 52px; */
+    background-color: #fff;!important
+    opacity: 0.5;
+    /* padding: 5px 0px 5px 0px; */
+}
+
+.item {
+    border-color: #ddd;
+    background-color: #fff; !important
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+  </style>
+  <ion-content class="social">
+    <ion-list>
+        <ion-item>
+            <div class="item-avatar">
+                <div class="img" ng-click="verempresa(data2.idempresa)" style="background-image: url(http://webpro.com.mx/asite/redConcreta/public/img/empresas/{{data3.url}})"></div>
+                <div class="user">
+                    <span class="pull-right" style="font-size: small;">Finaliza:{{data2.fecha_final}}</span>
+                    <h3 ng-click="verempresa(data2.idempresa)" style="color:#FF672B">{{data3.razon_social}}</h3>
+                </div>
+            </div>
+            <div class="item-featured">
+                <div class="img" style="background-image: url(http://webpro.com.mx/asite/redConcreta/public/img/promociones/{{data2.url}});"></div>
+            </div>
+            <div class="item-body">
+                <div class="tabs static tabs-icon-left comment">
+                    <a class="subdued pull-right more"><i class="icon ion-more"></i></a>
+                    <a class="tab-item" ng-click="shareAnywhere(data2.descripcion, data3.razon_social, data2.url, data3.web)">
+                        <i class="icon ion-share"></i>
+                        Compartir
+                    </a>
+
+                    <a style="max-width: 200px;" class="tab-item" ng-click="launchNavigator(data3.direcemp);">
+                        <i class="icon ion-map "></i>
+                      ¿C&oacute;mo llegar?
+                    </a>
+
+                    <a style="max-width: 200px;" class="tab-item" ng-click="verempresa(data2.idempresa)">
+                        <i class="icon ion-briefcase "></i>
+                      Empresa
+                    </a>
+
+
+
+                </div>
+
+                <div class="content">
+                <strong>{{data2.descripcion}} </strong>
+                </div>
+            </div>
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
