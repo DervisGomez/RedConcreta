@@ -47,7 +47,7 @@ app.controller('FbFeedsCtrl', function($scope, $http,AuthService, $ionicLoading,
 	AuthService.verEmpresa(data).then(function(res) {
 		// res holds your data
 		$scope.data2 = res;
-		
+
 
     	user = JSON.parse(user);
 			//user =JSON.stringify(user);
@@ -61,7 +61,7 @@ app.controller('FbFeedsCtrl', function($scope, $http,AuthService, $ionicLoading,
 	    	$scope.more = true;
 	    	$ionicLoading.hide();
 	    }, function(error) {
-	        alert("Error: " + error);
+	        //alert("Error: " + error);
 	    });
     };
 
@@ -87,7 +87,7 @@ $scope.loadFeeds();
 
 
 			}, function(error) {
-					alert("Error: " + error);
+					//alert("Error: " + error);
 			});
 
 		}
@@ -105,7 +105,7 @@ $scope.loadFeeds();
 					};
 
 					//$state.go('app.verempresa',{id:emp});
-					$state.go("app.fbfeeds", {}, {reload:true});
+					$state.go("app.fbfeeds", {id:$stateParams.id}, {reload:true});
 				}, function(error) {
 						alert("Error: " + error);
 				});

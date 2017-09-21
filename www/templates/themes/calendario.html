@@ -1,0 +1,71 @@
+<ion-view view-title="Calendario">
+  <style>
+  .social .item-body {
+      padding: 10px 10px 63px; !important
+  }
+
+
+
+
+
+.card, .list-inset {
+    overflow: hidden;
+    margin: 20px 10px;
+    /* border-radius: 52px; */
+    background-color: #fff;!important
+    opacity: 0.5;
+    /* padding: 5px 0px 5px 0px; */
+}
+
+.item {
+    border-color: #ddd;
+    background-color: #fff; !important
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+  </style>
+  <ion-content class="social">
+    <ion-list>
+        <ion-item ng-repeat="data2 in calendario">
+<h1>{{data2.title}}<h1>
+            <div class="item-featured">
+                <div class="img" style="background-image: url(http://sistemex.com/apps/redconcreta/redConcreta/public/img/calendario/{{data2.image}});"></div>
+            </div>
+            <div class="item-body">
+                <div class="tabs static tabs-icon-left comment">
+                    <a class="subdued pull-right more"><i class="icon ion-more"></i></a>
+                    <a class="tab-item" ng-click="agendar(data2.title, data2.description, data2.start, data2.end)">
+                        <i class="icon ion-calendar"></i>
+                        Agendar
+                    </a>
+
+
+
+
+                </div>
+
+                <div class="content">
+
+                <strong>{{data2.descripcion}} </strong>
+                </div>
+                <div class="user">
+                    <span class="pull-right" style="font-size: small;">Inicia:{{data2.start}}</span>
+
+                </div>
+                <div class="user">
+                    <span class="pull-right" style="font-size: small;">Finaliza:{{data2.end}}</span>
+
+                </div>
+            </div>
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

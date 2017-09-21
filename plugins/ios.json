@@ -16,11 +16,6 @@
         "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "sistemex.redconcreta"
         },
-        "cordova-plugin-camera": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "sistemex.redconcreta"
-        },
         "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "sistemex.redconcreta"
         },
@@ -77,6 +72,10 @@
         },
         "uk.co.workingedge.phonegap.plugin.launchnavigator": {
             "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes",
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-calendar": {
+            "CALENDAR_USAGE_DESCRIPTION": "Para agendar los eventos",
             "PACKAGE_NAME": "sistemex.redconcreta"
         }
     },

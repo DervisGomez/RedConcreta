@@ -25,38 +25,6 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-camera.Camera",
-        "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "Camera"
-        ]
-    },
-    {
-        "id": "cordova-plugin-camera.CameraPopoverOptions",
-        "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "CameraPopoverOptions"
-        ]
-    },
-    {
-        "id": "cordova-plugin-camera.camera",
-        "file": "plugins/cordova-plugin-camera/www/Camera.js",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "navigator.camera"
-        ]
-    },
-    {
-        "id": "cordova-plugin-camera.CameraPopoverHandle",
-        "file": "plugins/cordova-plugin-camera/www/ios/CameraPopoverHandle.js",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "CameraPopoverHandle"
-        ]
-    },
-    {
         "id": "cordova-plugin-device.device",
         "file": "plugins/cordova-plugin-device/www/device.js",
         "pluginId": "cordova-plugin-device",
@@ -424,6 +392,14 @@ module.exports = [
         "merges": [
             "launchnavigator"
         ]
+    },
+    {
+        "id": "cordova-plugin-calendar.Calendar",
+        "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
+        "pluginId": "cordova-plugin-calendar",
+        "clobbers": [
+            "Calendar"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -435,7 +411,6 @@ module.exports.metadata =
     "cordova-plugin-admobpro": "2.28.3",
     "cordova-plugin-app-event": "1.2.0",
     "cordova-plugin-compat": "1.1.0",
-    "cordova-plugin-camera": "2.4.0",
     "cordova-plugin-crosswalk-webview": "2.2.0",
     "cordova-plugin-device": "1.1.5",
     "cordova-plugin-dialogs": "1.3.2",
@@ -453,7 +428,8 @@ module.exports.metadata =
     "de.appplant.cordova.plugin.local-notification": "0.8.4",
     "ionic-plugin-keyboard": "2.2.1",
     "phonegap-plugin-push": "1.10.5",
-    "uk.co.workingedge.phonegap.plugin.launchnavigator": "4.0.5"
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "4.0.5",
+    "cordova-plugin-calendar": "4.6.0"
 };
 // BOTTOM OF METADATA
 });

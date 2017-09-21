@@ -151,7 +151,6 @@ if($localStorage.califtotal.califtotal != undefined || $localStorage.califtotal.
 
           $scope.launchNavigator = function(direcc) {
 
-            //var prueba = $cordovaGeolocation.getCurrentPosition(onSuccess, onError);
             var prueba = navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
             function onSuccess (position) {
@@ -165,10 +164,10 @@ if($localStorage.califtotal.califtotal != undefined || $localStorage.califtotal.
       }
               var destination = direcc;
             var start = prueba;
-              launchnavigator.navigate(destination).then(function() {
-              alert("Navigator launched");
+              launchnavigator.navigate(destination, start).then(function() {
+              //alert("Navigator launched");
               }, function (err) {
-                alert(err);
+                //alert(err);
               });
             };
 

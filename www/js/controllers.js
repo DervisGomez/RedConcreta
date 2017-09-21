@@ -71,6 +71,10 @@ app.controller('AppCtrl', function($ionicNavBarDelegate, $scope, $ionicModal, $h
    $state.go('app.red', null, {reload:true});
  }
 
+ $scope.calendario = function(){
+   $state.go('app.calendario', null, {reload:true});
+ }
+
  $scope.promociones= function(){
 $state.go('app.promociones', null, {reload:'pp.promociones'});
 

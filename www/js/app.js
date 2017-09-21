@@ -265,6 +265,16 @@ $ionicConfigProvider.backButton.previousTitleText(false);
       }
     }
   })
+  .state('app.calendario', {
+    url: '/calendario',
+    authenticate: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/themes/calendario.html',
+        controller: 'calendarioController'
+      }
+    }
+  })
   .state('app.radio', {
     url: '/radio',
     authenticate: false,

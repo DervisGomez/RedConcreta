@@ -4,6 +4,7 @@
     "description": "Red Concreta",
     "dependencies": {
         "cordova-ios": "^4.4.0",
+        "cordova-plugin-calendar": "^4.6.0",
         "cordova-plugin-geolocation": "^2.4.3",
         "gulp": "^3.5.6",
         "gulp-concat": "^2.2.0",
@@ -38,6 +39,9 @@
             },
             "uk.co.workingedge.phonegap.plugin.launchnavigator": {
                 "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
+            },
+            "cordova-plugin-calendar": {
+                "CALENDAR_USAGE_DESCRIPTION": "Para agendar los eventos"
             }
         }
     }

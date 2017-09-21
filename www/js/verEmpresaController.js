@@ -154,7 +154,7 @@ if($localStorage.califtotal.califtotal != undefined || $localStorage.califtotal.
             var prueba = navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
             function onSuccess (position) {
-alert(position);
+//alert(position);
       };
 
       // onError Callback receives a PositionError object
@@ -165,9 +165,9 @@ alert(position);
               var destination = direcc;
             var start = prueba;
               launchnavigator.navigate(destination, start).then(function() {
-              alert("Navigator launched");
+              //alert("Navigator launched");
               }, function (err) {
-                alert(err);
+                //alert(err);
               });
             };
 

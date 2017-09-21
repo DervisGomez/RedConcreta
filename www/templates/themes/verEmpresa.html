@@ -127,29 +127,37 @@ left: -40px;
 
       <ion-list style="background-color: ghostwhite;">
 
-      <ion-item  class="item item-icon-left">
+      <ion-item  class="item item-icon-left  button-fab">
         <i class="icon ion-email"></i>
       <span style="color:rgb(196, 58, 70)"> <a class=" button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"   ng-href="mailto:{{data2.email}}"> {{data2.email}} </a> </span>
       </ion-item>
 
-      <ion-item  style="position: relative;top: -10px;" class="item item-icon-left">
+      <ion-item  style="position: relative;top: -10px;" class="item item-icon-left  button-fab">
         <i class="icon ion-ios-telephone"></i>
-        <span style="color:rgb(196, 58, 70)"><a class="button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"  ng-href="tel: {{data2.telemp}}">{{data2.telemp}}</a></span>
+        <span style="color:rgb(196, 58, 70)"><a class="button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"  ng-href="tel: {{data2.telefono}}">{{data2.telefono}}</a></span>
       </ion-item>
-      <ion-item style="position: relative;top: -15px;" class="item item-icon-left">
+      <ion-item ng-if="data2.telefono2" style="position: relative;top: -10px;" class="item item-icon-left  button-fab">
+        <i class="icon ion-ios-telephone"></i>
+        <span style="color:rgb(196, 58, 70)"><a class="button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"  ng-href="tel: {{data2.telefono2}}">{{data2.telefono2}}</a></span>
+      </ion-item>
+      <ion-item ng-if="data2.telefono3" style="position: relative;top: -10px;" class="item item-icon-left  button-fab">
+        <i class="icon ion-ios-telephone"></i>
+        <span style="color:rgb(196, 58, 70)"><a class="button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"  ng-href="tel: {{data2.telefono3}}">{{data2.telefono3}}</a></span>
+      </ion-item>
+      <ion-item ng-if="data2.web" style="position: relative;top: -15px;" class="item item-icon-left button-fab">
         <i class="icon ion-ios-world"></i>
-      <span style="color:rgb(196, 58, 70)"><a class=" button-flat" style="color:rgb(196, 58, 70);text-decoration: none;" ng-href="{{data2.web}}">{{data2.web}}</a></span>
+      <span style="color:rgb(196, 58, 70)"><a class=" button-flat" style="color:rgb(196, 58, 70);text-decoration: none;" ng-href="{{data2.web}}" onclick='window.open(this.href, "_system", "location=yes"); return false;'>{{data2.web}}</a></span>
 <hr>
       </ion-item>
 
-      <ion-item ng-click="launchNavigator(data2.razon_social);" class="item item-icon-left" style="white-space: inherit;position: relative;top: -25px;" >
+      <ion-item ng-click="launchNavigator(data2.razon_social);" class="item item-icon-left  button-fab" style="white-space: inherit;position: relative;top: -25px;" >
         <i title="{{data2.direccion}}" animation="fade" class="icon2 ion-location tooltip" ></i>
 
         <img  src="img/mapa.png" width="100px" style="position: relative;float: right;">
       <span style="color:rgb(196, 58, 70)">  {{data2.direccion}} </span>
       </ion-item>
 
-      <ion-item class="item item-icon-left" style="white-space: inherit;position: relative;top: -35px;" ng-click="verface(data2.idemp)">
+      <ion-item class="item item-icon-left  button-fab" style="white-space: inherit;position: relative;top: -35px;" ng-click="verface(data2.idempresa)">
 
         <i class="social-button-square-facebook"></i>
       </ion-item>

@@ -8,27 +8,27 @@ angular.module('ionium').controller(
 
 
 
-$scope.launchNavigator = function(direcc) {
-
- var prueba = navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
- function onSuccess (position) {
-//alert(position);
-};
-
-// onError Callback receives a PositionError object
-//
-function onError(error) {
-alert(error);
-}
-	 var destination = direcc;
- var start = prueba;
-	 launchnavigator.navigate(destination, start).then(function() {
-	 alert("Navigator launched");
-	 }, function (err) {
-		 alert(err);
-	 });
- };
+                                    $scope.launchNavigator = function(direcc) {
+                                    
+                                    var prueba = navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                                    
+                                    function onSuccess (position) {
+                                    //alert(position);
+                                    };
+                                    
+                                    // onError Callback receives a PositionError object
+                                    //
+                                    function onError(error) {
+                                    alert(error);
+                                    }
+                                    var destination = direcc;
+                                    var start = prueba;
+                                    launchnavigator.navigate(destination, start).then(function() {
+                                                                                      alert("Navigator launched");
+                                                                                      }, function (err) {
+                                                                                      alert(err);
+                                                                                      });
+                                    };
 
 					// Active INK Effect
 				    ionic.material.ink.displayEffect();
