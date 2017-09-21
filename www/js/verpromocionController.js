@@ -5,25 +5,30 @@ angular.module('ionium').controller(
 
 // onError Callback receives a PositionError object
 //
-function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-}
-var onSuccess = function(position) {
 
-};
 
-var prueba = navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-					$scope.launchNavigator = function(direcc) {
-					    var destination = direcc;
-						var start = prueba;
-					    $cordovaLaunchNavigator.navigate(destination, start).then(function() {
-					      console.log("Navigator launched");
-					    }, function (err) {
-					      console.error(err);
-					    });
-					  };
+                                    $scope.launchNavigator = function(direcc) {
+                                    
+                                    var prueba = navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                                    
+                                    function onSuccess (position) {
+                                    //alert(position);
+                                    };
+                                    
+                                    // onError Callback receives a PositionError object
+                                    //
+                                    function onError(error) {
+                                    alert(error);
+                                    }
+                                    var destination = direcc;
+                                    var start = prueba;
+                                    launchnavigator.navigate(destination, start).then(function() {
+                                                                                      alert("Navigator launched");
+                                                                                      }, function (err) {
+                                                                                      alert(err);
+                                                                                      });
+                                    };
 
 					// Active INK Effect
 				    ionic.material.ink.displayEffect();

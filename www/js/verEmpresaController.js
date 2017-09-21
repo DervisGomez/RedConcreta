@@ -150,24 +150,24 @@ if($localStorage.califtotal.califtotal != undefined || $localStorage.califtotal.
 
 
           $scope.launchNavigator = function(direcc) {
+
             var prueba = navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-            var onSuccess = function(position) {
-
+            function onSuccess (position) {
+alert(position);
       };
 
       // onError Callback receives a PositionError object
       //
       function onError(error) {
-      alert('code: '    + error.code    + '\n' +
-            'message: ' + error.message + '\n');
+      alert(error);
       }
               var destination = direcc;
             var start = prueba;
-              $cordovaLaunchNavigator.navigate(destination, start).then(function() {
-                console.log("Navigator launched");
+              launchnavigator.navigate(destination, start).then(function() {
+              alert("Navigator launched");
               }, function (err) {
-                console.error(err);
+                alert(err);
               });
             };
 

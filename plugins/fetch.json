@@ -87,22 +87,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-geolocation": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-geolocation"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
-        "source": {
-            "type": "registry",
-            "id": "uk.co.workingedge.phonegap.plugin.launchnavigator"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-actionsheet": {
         "source": {
             "type": "git",
@@ -137,24 +121,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-email-composer": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/katzer/cordova-plugin-email-composer.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-sms-plugin": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/cordova-sms/cordova-sms-plugin.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-image-picker": {
         "source": {
             "type": "git",
@@ -168,15 +134,6 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-x-socialsharing"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-flashlight": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git",
-            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}
@@ -230,10 +187,20 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-nativeaudio": {
+    "cordova-plugin-geolocation": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-nativeaudio"
+            "id": "cordova-plugin-geolocation"
+        },
+        "is_top_level": true,
+        "variables": {
+            "GEOLOCATION_USAGE_DESCRIPTION": "Para localizar las empresas de las promociones"
+        }
+    },
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+        "source": {
+            "type": "registry",
+            "id": "uk.co.workingedge.phonegap.plugin.launchnavigator"
         },
         "is_top_level": true,
         "variables": {}

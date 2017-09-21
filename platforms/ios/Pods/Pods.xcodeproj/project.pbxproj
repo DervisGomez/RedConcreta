@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A2E9EB0F209C7622265BB5CE67D42D1 /* Pods-Red Concreta-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB00F4012610A3DABD65088F306FB2C /* Pods-Red Concreta-dummy.m */; };
+		7B0B0120CA86DFD536572F45C0218445 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		173B36DA9A5ED406088A50C1589B0B4E /* GGLInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceID.h; path = Headers/Public/GGLInstanceID.h; sourceTree = "<group>"; };
+		36F75FFC47B4DBEB5982F58544A7B2FC /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		406E42554E4F44DD827CEF83F329D046 /* Pods-Red Concreta-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Red Concreta-acknowledgements.plist"; sourceTree = "<group>"; };
+		474CBC9EAF59DE318EE6611AAE5D0291 /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = Frameworks/GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
+		4A59C4528E6B71DFA7011DF095E0C8B8 /* GCMReceiverDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMReceiverDelegate.h; path = Headers/Public/GCMReceiverDelegate.h; sourceTree = "<group>"; };
+		557F8A8F65851D3E2BC4FC9D28877E20 /* Pods-Red Concreta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Red Concreta.release.xcconfig"; sourceTree = "<group>"; };
+		5E02E7D39AED9852BE76B9C7904F02E1 /* Pods-Red Concreta-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Red Concreta-resources.sh"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6A055A93C3564E5CDA417C640324E176 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		6A52371D28A634057B785F5B581084AF /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		7CA10496D76BFBACEBB0662D49480F25 /* libPods-Red Concreta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Red Concreta.a"; path = "libPods-Red Concreta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8127A92CEFC4B6BC0D037BBDADA1B051 /* GGLInstanceIDConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceIDConfig.h; path = Headers/Public/GGLInstanceIDConfig.h; sourceTree = "<group>"; };
+		8DB00F4012610A3DABD65088F306FB2C /* Pods-Red Concreta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Red Concreta-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BD469413B9D194472712F81C4C19217C /* GGLInstanceIDHeaders.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceIDHeaders.h; path = Headers/Public/GGLInstanceIDHeaders.h; sourceTree = "<group>"; };
+		BD5E36BF0B6CBFDEC0927984332B535A /* GCMService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMService.h; path = Headers/Public/GCMService.h; sourceTree = "<group>"; };
+		D0F7003E2741822DC24D9C797B95A058 /* Pods-Red Concreta-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Red Concreta-frameworks.sh"; sourceTree = "<group>"; };
+		D6448B738D0F834A89872ACF4F33A1AA /* libGGLInstanceIDLib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLInstanceIDLib.a; path = Libraries/libGGLInstanceIDLib.a; sourceTree = "<group>"; };
+		E04BE7A3CBD84DBAA76FC51758B7CED6 /* GCMConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMConfig.h; path = Headers/Public/GCMConfig.h; sourceTree = "<group>"; };
+		E0581A30848AB33206469FA8507A67C7 /* Pods-Red Concreta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Red Concreta.debug.xcconfig"; sourceTree = "<group>"; };
+		EA6ECB7498639194EA9C76AA5A5335AA /* GCMPubSub.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMPubSub.h; path = Headers/Public/GCMPubSub.h; sourceTree = "<group>"; };
+		EE0A605C9B1A1EA6221D258D4E528AD7 /* GGLInstanceIDDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceIDDelegate.h; path = Headers/Public/GGLInstanceIDDelegate.h; sourceTree = "<group>"; };
+		EEFE0B43B6BEB77AB2B72163776B3431 /* libGcmLib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGcmLib.a; path = Libraries/libGcmLib.a; sourceTree = "<group>"; };
+		EF9C52AAF953F9FF209AF5E79C1BD3B4 /* Pods-Red Concreta-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Red Concreta-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F3E864806D6F83145EA52D163BA1A423 /* GoogleCloudMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleCloudMessaging.h; path = Headers/Public/GoogleCloudMessaging.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		726175D67CC1787AD206800396A6CEB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B0B0120CA86DFD536572F45C0218445 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		121A86CC4AAF79B70266B959308D3CA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3758E30E87F41188A58D53252E8DC67F /* GGLInstanceID */,
+				F52CA7A5CDCB3F8FEAEAD0AD400F9313 /* GoogleCloudMessaging */,
+				5E3943FF863A867D4D99F3E17093D9D7 /* GoogleInterchangeUtilities */,
+				9DCD9E1660319E9727375653D3EBBA13 /* GoogleIPhoneUtilities */,
+				BBD88AD6F1DF792566DB101E1D7A50AB /* GoogleSymbolUtilities */,
+				736A89F858E6E6D5DDEC5BBDA2E1C51B /* GoogleUtilities */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2FD026630DDFF013082B2945DB20B798 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				474CBC9EAF59DE318EE6611AAE5D0291 /* GoogleIPhoneUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3758E30E87F41188A58D53252E8DC67F /* GGLInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				173B36DA9A5ED406088A50C1589B0B4E /* GGLInstanceID.h */,
+				8127A92CEFC4B6BC0D037BBDADA1B051 /* GGLInstanceIDConfig.h */,
+				EE0A605C9B1A1EA6221D258D4E528AD7 /* GGLInstanceIDDelegate.h */,
+				BD469413B9D194472712F81C4C19217C /* GGLInstanceIDHeaders.h */,
+				FEEE277DB90FD41AA0B77E6258108DFB /* Frameworks */,
+			);
+			name = GGLInstanceID;
+			path = GGLInstanceID;
+			sourceTree = "<group>";
+		};
+		459335D39A1CAC49EB91A21C75278605 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7CA10496D76BFBACEBB0662D49480F25 /* libPods-Red Concreta.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E3943FF863A867D4D99F3E17093D9D7 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				CAFDBEDBC9861619C5BC0B5A525B32E5 /* Frameworks */,
+			);
+			name = GoogleInterchangeUtilities;
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		736A89F858E6E6D5DDEC5BBDA2E1C51B /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				E8A2173F40F6AA192DD2A76C1203C416 /* Frameworks */,
+			);
+			name = GoogleUtilities;
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				121A86CC4AAF79B70266B959308D3CA7 /* Pods */,
+				459335D39A1CAC49EB91A21C75278605 /* Products */,
+				879516999C6B5FDE389926BCEC4D1BB1 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		879516999C6B5FDE389926BCEC4D1BB1 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B99ECA0C93083274DBADFBAD5AF035F /* Pods-Red Concreta */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8B99ECA0C93083274DBADFBAD5AF035F /* Pods-Red Concreta */ = {
+			isa = PBXGroup;
+			children = (
+				EF9C52AAF953F9FF209AF5E79C1BD3B4 /* Pods-Red Concreta-acknowledgements.markdown */,
+				406E42554E4F44DD827CEF83F329D046 /* Pods-Red Concreta-acknowledgements.plist */,
+				8DB00F4012610A3DABD65088F306FB2C /* Pods-Red Concreta-dummy.m */,
+				D0F7003E2741822DC24D9C797B95A058 /* Pods-Red Concreta-frameworks.sh */,
+				5E02E7D39AED9852BE76B9C7904F02E1 /* Pods-Red Concreta-resources.sh */,
+				E0581A30848AB33206469FA8507A67C7 /* Pods-Red Concreta.debug.xcconfig */,
+				557F8A8F65851D3E2BC4FC9D28877E20 /* Pods-Red Concreta.release.xcconfig */,
+			);
+			name = "Pods-Red Concreta";
+			path = "Target Support Files/Pods-Red Concreta";
+			sourceTree = "<group>";
+		};
+		9DCD9E1660319E9727375653D3EBBA13 /* GoogleIPhoneUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				2FD026630DDFF013082B2945DB20B798 /* Frameworks */,
+			);
+			name = GoogleIPhoneUtilities;
+			path = GoogleIPhoneUtilities;
+			sourceTree = "<group>";
+		};
+		A770D2EDC6FA25DCD787792DF757FA50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEFE0B43B6BEB77AB2B72163776B3431 /* libGcmLib.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9E958B53590711D484747E648D2BBAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A52371D28A634057B785F5B581084AF /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBD88AD6F1DF792566DB101E1D7A50AB /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				B9E958B53590711D484747E648D2BBAF /* Frameworks */,
+			);
+			name = GoogleSymbolUtilities;
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CAFDBEDBC9861619C5BC0B5A525B32E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36F75FFC47B4DBEB5982F58544A7B2FC /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E8A2173F40F6AA192DD2A76C1203C416 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A055A93C3564E5CDA417C640324E176 /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F52CA7A5CDCB3F8FEAEAD0AD400F9313 /* GoogleCloudMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				E04BE7A3CBD84DBAA76FC51758B7CED6 /* GCMConfig.h */,
+				EA6ECB7498639194EA9C76AA5A5335AA /* GCMPubSub.h */,
+				4A59C4528E6B71DFA7011DF095E0C8B8 /* GCMReceiverDelegate.h */,
+				BD5E36BF0B6CBFDEC0927984332B535A /* GCMService.h */,
+				F3E864806D6F83145EA52D163BA1A423 /* GoogleCloudMessaging.h */,
+				A770D2EDC6FA25DCD787792DF757FA50 /* Frameworks */,
+			);
+			name = GoogleCloudMessaging;
+			path = GoogleCloudMessaging;
+			sourceTree = "<group>";
+		};
+		FEEE277DB90FD41AA0B77E6258108DFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6448B738D0F834A89872ACF4F33A1AA /* libGGLInstanceIDLib.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11CC9E43B8FBC52AE765A504E9D075EB /* Pods-Red Concreta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7E22F49C3A039B813F7F552BC221B0A /* Build configuration list for PBXNativeTarget "Pods-Red Concreta" */;
+			buildPhases = (
+				69D41C34B9EFF8123D00E6CAE2E2FDCC /* Sources */,
+				726175D67CC1787AD206800396A6CEB1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Red Concreta";
+			productName = "Pods-Red Concreta";
+			productReference = 7CA10496D76BFBACEBB0662D49480F25 /* libPods-Red Concreta.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 459335D39A1CAC49EB91A21C75278605 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11CC9E43B8FBC52AE765A504E9D075EB /* Pods-Red Concreta */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69D41C34B9EFF8123D00E6CAE2E2FDCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A2E9EB0F209C7622265BB5CE67D42D1 /* Pods-Red Concreta-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0B45F16604F2504AB61C8870EDD947F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 557F8A8F65851D3E2BC4FC9D28877E20 /* Pods-Red Concreta.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1C7D17A37D091C98D2F0DD886C3A9320 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8BA70812F6473D5E20A643260680DD78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0581A30848AB33206469FA8507A67C7 /* Pods-Red Concreta.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C7D17A37D091C98D2F0DD886C3A9320 /* Debug */,
+				34FE9531DA9AF2820790339988D5FF41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7E22F49C3A039B813F7F552BC221B0A /* Build configuration list for PBXNativeTarget "Pods-Red Concreta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BA70812F6473D5E20A643260680DD78 /* Debug */,
+				0B45F16604F2504AB61C8870EDD947F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

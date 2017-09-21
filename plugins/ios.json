@@ -1,0 +1,94 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.hutchind.cordova.plugins.streamingmedia": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": "Para localizar las empresas de las promociones",
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-image-picker": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "85075801930",
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+            "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes",
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "sistemex.redconcreta"
+        }
+    }
+}
