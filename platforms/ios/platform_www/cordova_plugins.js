@@ -17,14 +17,6 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-admobpro.AdMob",
-        "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
-        "pluginId": "cordova-plugin-admobpro",
-        "clobbers": [
-            "window.AdMob"
-        ]
-    },
-    {
         "id": "cordova-plugin-device.device",
         "file": "plugins/cordova-plugin-device/www/device.js",
         "pluginId": "cordova-plugin-device",
@@ -407,8 +399,6 @@ module.exports.metadata =
 {
     "com.hutchind.cordova.plugins.streamingmedia": "0.1.4",
     "cordova-plugin-actionsheet": "2.3.3",
-    "cordova-plugin-extension": "1.5.1",
-    "cordova-plugin-admobpro": "2.28.3",
     "cordova-plugin-app-event": "1.2.0",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-crosswalk-webview": "2.2.0",

@@ -17,10 +17,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMobPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
                         },
@@ -101,12 +97,7 @@
             },
             "*-Info.plist": {
                 "parents": {
-                    "NSAppTransportSecurity": [
-                        {
-                            "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /></dict>",
-                            "count": 1
-                        }
-                    ],
+                    "NSAppTransportSecurity": [],
                     "NSCameraUsageDescription": [],
                     "NSPhotoLibraryUsageDescription": [
                         {
@@ -189,12 +180,6 @@
             "PACKAGE_NAME": "sistemex.redconcreta"
         },
         "cordova-plugin-actionsheet": {
-            "PACKAGE_NAME": "sistemex.redconcreta"
-        },
-        "cordova-plugin-extension": {
-            "PACKAGE_NAME": "sistemex.redconcreta"
-        },
-        "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "sistemex.redconcreta"
         },
         "cordova-plugin-app-event": {
@@ -282,14 +267,6 @@
             "pluginId": "cordova-plugin-actionsheet",
             "clobbers": [
                 "window.plugins.actionsheet"
-            ]
-        },
-        {
-            "id": "cordova-plugin-admobpro.AdMob",
-            "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
-            "pluginId": "cordova-plugin-admobpro",
-            "clobbers": [
-                "window.AdMob"
             ]
         },
         {
@@ -673,8 +650,6 @@
     "plugin_metadata": {
         "com.hutchind.cordova.plugins.streamingmedia": "0.1.4",
         "cordova-plugin-actionsheet": "2.3.3",
-        "cordova-plugin-extension": "1.5.1",
-        "cordova-plugin-admobpro": "2.28.3",
         "cordova-plugin-app-event": "1.2.0",
         "cordova-plugin-compat": "1.1.0",
         "cordova-plugin-crosswalk-webview": "2.2.0",

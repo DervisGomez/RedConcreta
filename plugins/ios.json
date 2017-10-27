@@ -13,9 +13,6 @@
         "cordova-plugin-actionsheet": {
             "PACKAGE_NAME": "sistemex.redconcreta"
         },
-        "cordova-plugin-admobpro": {
-            "PACKAGE_NAME": "sistemex.redconcreta"
-        },
         "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "sistemex.redconcreta"
         },
@@ -80,9 +77,6 @@
         }
     },
     "dependent_plugins": {
-        "cordova-plugin-extension": {
-            "PACKAGE_NAME": "sistemex.redconcreta"
-        },
         "cordova-plugin-app-event": {
             "PACKAGE_NAME": "sistemex.redconcreta"
         },
