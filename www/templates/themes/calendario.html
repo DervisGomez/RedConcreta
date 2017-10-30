@@ -4,10 +4,6 @@
       padding: 10px 10px 63px; !important
   }
 
-
-
-
-
 .card, .list-inset {
     overflow: hidden;
     margin: 20px 10px;
@@ -15,6 +11,10 @@
     background-color: #fff;!important
     opacity: 0.5;
     /* padding: 5px 0px 5px 0px; */
+}
+
+.user span{
+    margin-left: 12px;
 }
 
 .item {
@@ -41,7 +41,7 @@
             <div class="item-body">
                 <div class="tabs static tabs-icon-left comment">
                     <a class="subdued pull-right more"><i class="icon ion-more"></i></a>
-                    <a class="tab-item" ng-click="agendar(data2.title, data2.description, data2.start, data2.end)">
+                    <a class="tab-item" ng-click="agendar(data2.title, data2.description, data2.start, data2.end,data2)">
                         <i class="icon ion-calendar"></i>
                         Agendar
                     </a>
@@ -52,16 +52,20 @@
                 </div>
 
                 <div class="content">
+                    <strong>{{data2.descripcion}} </strong>
+                </div>
 
-                <strong>{{data2.descripcion}} </strong>
+                <div class="user">
+                    <span class="pull-right" style="font-size: small;">Costo: {{data2.costo}}</span>
                 </div>
                 <div class="user">
-                    <span class="pull-right" style="font-size: small;">Inicia:{{data2.start}}</span>
-
+                    <span class="pull-right" style="font-size: small;">Cupo: {{data2.cupo}}</span>
                 </div>
                 <div class="user">
-                    <span class="pull-right" style="font-size: small;">Finaliza:{{data2.end}}</span>
-
+                    <span class="pull-right" style="font-size: small;">Inicia: {{data2.start}}</span>
+                </div>
+                <div class="user">
+                    <span class="pull-right" style="font-size: small;">Finaliza: {{data2.end}}</span>
                 </div>
             </div>
         </ion-item>

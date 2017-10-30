@@ -271,6 +271,17 @@ return response.data
 						     else
 						        return false;
 
+						},
+						setParticipantes: function(data) {
+							$http({
+								method : "POST",
+								url : BASE_URL.url
+										+ 'apps/redconcreta/redConcretaServices/public/api/setParticipantes',
+								data : data,
+								headers : {
+									'Content-Type' : 'application/json'
+								}
+							});
 						}
 
 					}

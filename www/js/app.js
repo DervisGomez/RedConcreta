@@ -275,6 +275,16 @@ $ionicConfigProvider.backButton.previousTitleText(false);
       }
     }
   })
+  .state('app.agendar', {
+    url: '/calendario',
+    authenticate: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/themes/agendar.html',
+        controller: 'agendarController'
+      }
+    }
+  })
   .state('app.radio', {
     url: '/radio',
     authenticate: false,

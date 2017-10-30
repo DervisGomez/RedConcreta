@@ -1,0 +1,61 @@
+<ion-modal-view>
+
+<style> 
+  input::placeholder { color: #aaa; }
+  .formulario{
+    margin: 0 12px;
+  }
+  .button{
+    margin: 0;
+  }
+  .contenido{
+    width: 90%;
+    max-width: 600px;
+    margin: 16px auto;
+    text-align: center;
+  }
+  .cantidad-participantes{
+    margin: 0 auto;
+    margin-top:24px;
+    color: black;
+    text-align: center;
+  }
+</style>
+    <ion-header-bar>
+    <div style="margin-top:8px">Cantidad:</div>
+    <label class="item item-input" style="margin-left:12px">
+      <input type="number" ng-model="data.cantidad" style="width:50px;" max="{{data.max}}" min="1">
+    </label>
+      <a class="button button-icon icon ion-checkmark" ng-click="validadcantidad()"></a>
+      <a class="button button-icon icon ion-close" style="position: absolute; right:0" ng-click="closeModal()"></a>
+    </ion-header-bar>
+    <ion-content>
+      <div class="contenido" ng-show="data.aparecer">
+        <h2 class="cantidad-participantes">Participantes</h2>
+        <div class="row">
+          <div class="col"><a class="button icon-left ion-chevron-left button-full" ng-click="anterior()">Anterior</a></div>
+          <div class="col"><h4 class="cantidad-participantes">{{data.participantes}}</h4></div>
+          <div class="col"><a class="button icon-right ion-chevron-right button-full" ng-click="siguiente()">Siguiente</a></div>
+        </div>
+        <div class="formulario" >
+          <label class="item item-input">
+            <input type="text" placeholder="Nombre" ng-model="participante.nombre">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Apellido" ng-model="participante.apellido">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Fecha de Nacimiento" ng-model="participante.fechanacimiento">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Teléfono" ng-model="participante.telefono">
+          </label>
+          <button class="button button-block button-assertive" ng-click="guardar()">
+            Guardar
+          </button>
+        </div>
+        
+
+      </div>
+    </ion-content>
+  </ion-modal-view>
