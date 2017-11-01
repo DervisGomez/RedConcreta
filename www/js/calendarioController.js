@@ -46,7 +46,13 @@ angular.module('ionium').controller(
 
 			};
 
-			$scope.agendar = function(title,notes,startDate,endDate,ind){
+			$scope.agendar = function(title,notes,startDate,endDate){
+				var success = function(message) { alert("Success: " + JSON.stringify(message)); };
+			 	var error = function(message) { alert("Error: " + message); };
+				window.plugins.calendar.createEventInteractively(title,notes,startDate,endDate,success,error);
+			}
+
+			$scope.reservar = function(ind){
 				console.log(ind.id)
 				$scope.data.id=ind.id;
 				$scope.data.max=parseInt(ind.cupo);
