@@ -1,11 +1,19 @@
 angular.module('ionium').controller(
 		'calendarioController',
-		function($scope, AuthService, $ionicModal, $http, $ionicPopup, $ionicPlatform, $interval, $cordovaNetwork, $rootScope, $localStorage, $state, $timeout, $ionicLoading, $ionicSlideBoxDelegate,$ionicHistory, $firebaseObject) {
+		function($scope, AuthService, $ionicModal, $http, $ionicPopup, $ionicPlatform, $interval, $cordovaNetwork, $rootScope, $localStorage, $state, $timeout, $ionicLoading, $ionicSlideBoxDelegate,$ionicHistory, $firebaseObject,stripe) {
 			
 			var ref = firebase.database().ref();
 			$scope.calendario = $firebaseObject(ref.child('eventos'));
 			console.log($scope.calendario);
 			$scope.participantes="5";
+
+			$scope.cardDetails = {
+			    number: "",
+			    cvc: "",
+			    exp_month: "",
+			    exp_year: "",
+			};
+
 
 			$ionicModal.fromTemplateUrl('templates/themes/agendar.html', {
 			    scope: $scope,
@@ -19,7 +27,8 @@ angular.module('ionium').controller(
 				aparecer: false,
 				atual: 0,
 				participantes: "",
-				id: 0
+				id: 0,
+				precio: 0
 			};
 
 			$scope.participante= {
@@ -43,6 +52,7 @@ angular.module('ionium').controller(
 				$scope.data.max=parseInt(ind.cupo);
 				$scope.data.cantidad=parseInt(ind.cupo);
 				$scope.data.aparecer=false;
+				$scope.data.precio=ind.costo;
 				var success = function(message) { alert("Success: " + JSON.stringify(message)); };
 			 	var error = function(message) { alert("Error: " + message); };
 			 	$scope.openModal();
@@ -72,6 +82,12 @@ angular.module('ionium').controller(
 							telefono:""							
 						});
 					}
+					$scope.cardDetails = {
+					    number: "",
+					    cvc: "",
+					    exp_month: "",
+					    exp_year: "",
+					};
 					$scope.participante.nombre="";
 					$scope.participante.fechanacimiento="";
 					$scope.participante.apellido="";
@@ -122,6 +138,13 @@ angular.module('ionium').controller(
 				}
 			};
 			$scope.guardar = function() {
+				$ionicLoading.show({
+									content: 'Loading',
+									animation: 'fade-in',
+									showBackdrop: true,
+									maxWidth: 200,
+									showDelay: 0
+								});
 				console.log($scope.data.actual);
 				$scope.cantidadparticipante[$scope.data.actual-1].nombre=$scope.participante.nombre;
 				$scope.cantidadparticipante[$scope.data.actual-1].fechanacimiento=$scope.participante.fechanacimiento;
@@ -137,7 +160,8 @@ angular.module('ionium').controller(
 						$scope.participante.apellido=$scope.cantidadparticipante[$scope.data.actual-1].apellido;
 						$scope.participante.telefono=$scope.cantidadparticipante[$scope.data.actual-1].telefono;
 						$scope.data.participantes=$scope.data.actual+"/"+$scope.data.cantidad;
-						$scope.showAlert("Calendario","	Hay campos vacios");
+						$ionicLoading.hide();
+						$scope.showAlert("Calendario","Faltan al menos un dato de un participante");
 						return;
 					}	
 				}
@@ -145,10 +169,38 @@ angular.module('ionium').controller(
 			};
 
 			$scope.guardarParticipantes = function(){
-				for (var i = 0; i < $scope.data.cantidad; i++){
-					console.log($scope.cantidadparticipante[i]);
-					AuthService.setParticipantes($scope.cantidadparticipante[i]);
-				}
+				if($scope.cardDetails.number!=undefined&&$scope.cardDetails.cvc!=undefined&&$scope.cardDetails.exp_month!=undefined&&$scope.cardDetails.exp_year!=undefined){
+					stripe.card.createToken($scope.cardDetails)
+					.then(function (response) {
+					    console.info('token created for card ending in ', response);
+					    var price=parseFloat($scope.data.precio)*parseInt($scope.data.cantidad);
+					    console.log(price);			      
+					    var payment = {
+					        token: response.id,
+					        price: price
+					    }
+					    AuthService.setPago(payment).then(function(response) {
+					    	console.log('successfully submitted payment for £', response);
+					    	for (var i = 0; i < $scope.data.cantidad; i++){
+								console.log($scope.cantidadparticipante[i]);
+								AuthService.setParticipantes($scope.cantidadparticipante[i]);
+							}
+							$ionicLoading.hide();
+							$scope.showAlert("Calendario","Inscripción exitosa");
+							$scope.data.aparecer=false;
+					    },function (error) {
+					        $ionicLoading.hide();
+					    	$scope.showAlert("Calendario","Ocurrio un error en el servidor"+error);
+					    });
+					},
+					function (error) {
+						$ionicLoading.hide();
+					    $scope.showAlert("Calendario","Ocurrio un error el pago no fue aceptado "+error);
+					});
+				}else{
+					$ionicLoading.hide();
+					$scope.showAlert("Calendario","Ha introducido los datos de la tarjeta incorrectamente");
+				}				
 			};
 
 		});/**

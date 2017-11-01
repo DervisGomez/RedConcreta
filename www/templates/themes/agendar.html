@@ -20,6 +20,15 @@
     color: black;
     text-align: center;
   }
+  .row .col{
+    padding: 0;
+  }
+  .row{
+    padding: 0;
+  }
+  input:invalid { 
+    border: 1px solid red;
+  }
 </style>
     <ion-header-bar>
     <div style="margin-top:8px">Cantidad:</div>
@@ -32,12 +41,12 @@
     <ion-content>
       <div class="contenido" ng-show="data.aparecer">
         <h2 class="cantidad-participantes">Participantes</h2>
-        <div class="row">
-          <div class="col"><a class="button icon-left ion-chevron-left button-full" ng-click="anterior()">Anterior</a></div>
-          <div class="col"><h4 class="cantidad-participantes">{{data.participantes}}</h4></div>
-          <div class="col"><a class="button icon-right ion-chevron-right button-full" ng-click="siguiente()">Siguiente</a></div>
-        </div>
         <div class="formulario" >
+          <div class="row">
+            <div class="col"><a class="button icon-left ion-chevron-left button-full" ng-click="anterior()">Anterior</a></div>
+            <div class="col"><h4 class="cantidad-participantes">{{data.participantes}}</h4></div>
+            <div class="col"><a class="button icon-right ion-chevron-right button-full" ng-click="siguiente()">Siguiente</a></div>
+          </div>
           <label class="item item-input">
             <input type="text" placeholder="Nombre" ng-model="participante.nombre">
           </label>
@@ -45,16 +54,38 @@
             <input type="text" placeholder="Apellido" ng-model="participante.apellido">
           </label>
           <label class="item item-input">
-            <input type="text" placeholder="Fecha de Nacimiento" ng-model="participante.fechanacimiento">
+            <input type="date" placeholder="Fecha de Nacimiento" ng-model="participante.fechanacimiento">
           </label>
           <label class="item item-input">
             <input type="text" placeholder="Teléfono" ng-model="participante.telefono">
           </label>
+
+          <h3 class="cantidad-participantes">Tarjeta</h3>
+
+          <label class="item item-input">
+            <input type="number" placeholder="Numero Tarjeta" ng-model="cardDetails.number" min="999999999999999" max="10000000000000000">
+          </label>
+          <div class="row">
+            <div class="col">              
+              <label class="item item-input">
+                <input type="number" placeholder="Mes" ng-model="cardDetails.exp_month" min="1" max="12">
+              </label>
+            </div>
+            <div class="col">
+              <label class="item item-input">
+                <input type="number" placeholder="Año" ng-model="cardDetails.exp_year" min="17" max="99">
+              </label>
+            </div>
+            <div class="col">
+              <label class="item item-input">
+                <input type="number" placeholder="CVV" ng-model="cardDetails.cvc" min="100" max="999">
+              </label>
+            </div>
+          </div>
           <button class="button button-block button-assertive" ng-click="guardar()">
             Guardar
           </button>
-        </div>
-        
+        </div>       
 
       </div>
     </ion-content>

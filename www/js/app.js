@@ -11,7 +11,7 @@ window.global = {
   Admob_Unit_ID   :'xxxxxxxxxx'
 }
 
-angular.module('ionium', ['ionic', 'backand', 'topscroller', 'ngCordova', 'ngCordovaOauth', 'ionium.controllers', 'ionium.services', 'ngStorage', 'ionic-ratings', 'ngTwitter', 'ion-gallery', 'ksSwiper', 'firebase']).constant("BASE_URL", {
+angular.module('ionium', ['ionic', 'backand', 'topscroller', 'ngCordova', 'ngCordovaOauth', 'ionium.controllers', 'ionium.services', 'ngStorage', 'ionic-ratings', 'ngTwitter', 'ion-gallery', 'ksSwiper', 'firebase', 'angular-stripe']).constant("BASE_URL", {
         //"urldecuria": "http://localhost/",
       //  "url":"http://www.decuria.com.mx/"
         "url": "http://sistemex.com/",
@@ -214,9 +214,11 @@ alert(data.registrationId);
 
 //fqz-x2gsldQ:APA91bFC5AnPDzUELnzYKVZvhdvpzAlli7aisg2KJgqCDr3tuHsyWuL_Gx5UYNmb8UzGjnQqs4QJbCbjlOub7AMno_pVjZ-wGwgZ5Cp5ZUqiMCjy7DLU6YEaGN7csDLNmYj_C6Oa1kSN
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, BackandProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, BackandProvider, stripeProvider) {
   BackandProvider.setAppName(window.global.Backand_AppName);
   BackandProvider.setAnonymousToken(window.global.Backand_Token);
+
+  stripeProvider.setPublishableKey('pk_test_ffjQWAXBJeFr7Z8UULvZBMiM');
 
 $ionicConfigProvider.backButton.text('');
 $ionicConfigProvider.backButton.icon('ion-android-arrow-back');
