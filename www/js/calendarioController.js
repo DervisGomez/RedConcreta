@@ -19,6 +19,7 @@ angular.module('ionium').controller(
 		            	start:calen.start,
 		            	end:calen.end,
 		            	title:calen.title,
+		            	direccion:calen.direccion,
 		            	visible:false,
 		            	ind:x
 		            });
@@ -114,35 +115,41 @@ angular.module('ionium').controller(
 
 			$scope.masparticipantes=function(){
 				console.log("hola");
-				$scope.data.aparece=true;
-				$scope.data.aparece2=false;
+				if($scope.data.aparece3){
+					$scope.data.aparece=true;
+					$scope.data.aparece2=false;
+				}
+				
 			}
 
 			$scope.totalparticipantes=function(){
-				if($scope.data.cantidad<=$scope.data.max){
-					$scope.data.aparece2=true;
-					$scope.data.aparece=false;
-					$scope.data.total=$scope.data.precio*$scope.data.cantidad;
-					if($scope.cantidadparticipante.length<$scope.data.cantidad){
-						for(var i=$scope.cantidadparticipante.length;i<$scope.data.cantidad;i++){
-							$scope.cantidadparticipante.push({
-								idevento:$scope.data.id,
-								nombre:"",
-								apellido:"",
-								fechanacimiento:"",
-								telefono:""	,
-								correo:""					
-							});
+				if($scope.data.aparece3){
+					if($scope.data.cantidad<=$scope.data.max){
+						$scope.data.aparece2=true;
+						$scope.data.aparece=false;
+						$scope.data.total=$scope.data.precio*$scope.data.cantidad;
+						if($scope.cantidadparticipante.length<$scope.data.cantidad){
+							for(var i=$scope.cantidadparticipante.length;i<$scope.data.cantidad;i++){
+								$scope.cantidadparticipante.push({
+									idevento:$scope.data.id,
+									nombre:"",
+									apellido:"",
+									fechanacimiento:"",
+									telefono:""	,
+									correo:""					
+								});
+							}
+						}else{
+							for(var i=$scope.data.cantidad;i<$scope.cantidadparticipante.length;i++){
+								console.log("hola");
+								$scope.cantidadparticipante.splice(i);
+							}
 						}
 					}else{
-						for(var i=$scope.data.cantidad;i<$scope.cantidadparticipante.length;i++){
-							console.log("hola");
-							$scope.cantidadparticipante.splice(i);
-						}
+						$scope.showAlert("Calendario","solo hay disponible "+$scope.data.max+" cupos");
 					}
-				}else{
-					$scope.showAlert("Calendario","solo hay disponible "+$scope.data.max+" cupos");
 				}
+				
 			}
 
 			$scope.annadir=function(){
@@ -167,8 +174,11 @@ angular.module('ionium').controller(
 						return;
 					}	
 				}
+				$scope.data.cantidad=$scope.cantidadparticipante.length;
 				$scope.data.aparece3=false;
 				$scope.data.aparece4=true;
+				$scope.data.aparece2=true;
+				$scope.data.aparece=false;
 			}
 
 			$scope.pagarTotal=function(){
@@ -191,7 +201,7 @@ angular.module('ionium').controller(
 					    }
 					    AuthService.setPago(payment).then(function(response) {
 					    	console.log('successfully submitted payment for £', response);
-					    	for (var i = 0; i < $scope.data.cantidad; i++){
+					    	for (var i = 0; i < $scope.cantidadparticipante.length; i++){
 								console.log($scope.cantidadparticipante[i]);
 								AuthService.setParticipantes($scope.cantidadparticipante[i]);
 							}

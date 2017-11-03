@@ -136,11 +136,14 @@
                 </button>
           </div>
         </div>
+        <button ng-show="data.aparece3" ng-click="closeModal()" class="button button-clear button-assertive" style"color: #ff2b5a; margin: 0 auto">
+            Cancelar
+          </button>
 
         
         <div ng-show="data.aparece4" >
           <h3 style="font-size:16px;color:#ff2b5a"><strong>Fecha del evento: </strong>{{data.fechainicio|date : format : 'medium'}}</h3>
-            <div class="item-featured">
+            <div ng-show="false" class="item-featured">
                 <div style="width:100%;">
                   <img style="width:90%;margin:0 auto" src="http://sistemex.com/apps/redconcreta/redConcreta/public/img/calendario/{{data.image}}">
                 </div>
@@ -149,7 +152,7 @@
           <div style="width:100%">
             <img src="img/Icon_Card.png" style="width:32px" />
             <div style="padding:10px;display:inline-block;width:80%">
-              <div class="list" style="background:#ff2b5a;margin-top:-2px; padding-top:0;padding-bottom:2px; width:100%">
+              <div class="list" style="border-bottom-width: 1px; border-bottom-style: solid;border-bottom-color:#ffe1e7; padding-top:0;padding-bottom:2px; width:100%">
                 <label class="item item-input item-floating-label">
                   <input type="number" placeholder="Numero" ng-model="cardDetails.number" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min="0" max="10000000000000000">
                 </label>
@@ -161,7 +164,7 @@
             <div style="display:inline-block;width:80%">
               <div class="row" style="padding:0; margin:0">
                 <div class="col" style="padding:0">
-                  <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
+                  <div class="list" style="background:#ffe1e7; padding:3px;display:inline-block; width:80%">
                     <label class="item item-input item-floating-label">
                       <input type="number" placeholder="Mes" ng-model="cardDetails.exp_month" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min="1" max="12">
                     </label>
@@ -187,7 +190,10 @@
           <br> 
           <button ng-click="pagarTotal()" class="button" style="border-radius: 32px;background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
                   Pagar
-                </button>     
+                </button>
+                <button ng-show="data.aparece4" ng-click="closeModal()" class="button button-clear button-assertive" style"color: #ff2b5a; margin: 0 auto">
+            Cancelar
+          </button>
         </div>
       </div>
     </ion-content>

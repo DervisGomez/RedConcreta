@@ -46,32 +46,32 @@
             </div>
             <div ng-show="data2.visible">
                 <div class="row" >
-                    <div class="col-50" style="box-shadow: 0px 0px 2px #aaa;">
-                        <h2 style="font-size: 16px; color:#ff2b5a; font-weight: bold">{{data2.title}}
+                    <div class="col-50" style="text-align: center;box-shadow: 0px 0px 2px #aaa;">
+                        <h2 style="font-size: 18px; color:#ff2b5a; font-weight: bold">{{data2.title}}
                         </h2>
-                        <div style="font-size: 12px; margin-top: 16px; color:#ff727d">{{data2.description}}
+                    </div>
+                    <div class="col-50" style="text-align: center; box-shadow: 0px 0px 2px #aaa;">
+                        <div style="font-size: 16px; color:#ff2b5a;">$ {{data2.direccion}}
                         </div>
                     </div>
-                    <div class="col-50" style="text-align: right; box-shadow: 0px 0px 2px #aaa;">
-                        <i class="icon ion-ios-navigate" style="font-size:50px;color:#ff2b5a;"></i>
-                        <div style="font-size: 12px;color:#ff727d">Costo del Evento
-                        </div>
-                        <div style="font-size: 16px; color:#ff2b5a;font-weight: bold">$ {{data2.costo}}
-                        </div>
-                    </div>
+                </div>
+                <div style="color:#ff727d; margin:16px auto;width:90%; font-size:14px">
+                    {{data2.description}}
                 </div>
                 <div class="row" style="width: 90%; margin: 16px auto; background: #ffe1e7; border-width: 1px;
     border-style: solid;border-radius: 4px; border-color:#ff2b5a">
-                    <div class="col-50" style="text-align: center; padding: 8px">
-                        <div style="font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data2.start.substr(0, 10)| date:"dd-MM-yyyy"}} </strong>fecha</div>
+                    <div class="col-50" style="color:#ff727d;text-align: left;">
+                        Cuando:
+                        <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data2.start.substr(0, 10)| date:"dd-MMM-yyyy"}} </strong></div>
+                        <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data2.start.substring(11,16)}} </strong></div>
                     </div>
-                    <div style="font-size: 16px; color:#ff2b5a;font-weight: bold;padding: 8px">|</div>
-                    <div class="col-50" style="text-align: center;padding: 8px">
-                        <div style="font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data2.start.substr(10, 14)}} </strong>hora</div>
+                    <div class="col-50" style="padding-top:0;margin-top:16px;padding-bottom:0;margin-bottom:16px;color:#ff727d;text-align: left;border-left-width: 1px; border-left-style: solid;border-left-color:#ff727d">
+                        Precio:
+                        <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">$ {{data2.costo}} </strong></div>
                     </div>
                 </div>
                 <button ng-click="ir(data2)" class="button" style="background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
-                  Inscribir
+                  Registrarme
                 </button>
             </div>
         </div>
