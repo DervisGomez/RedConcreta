@@ -1,4 +1,5 @@
 <ion-view view-title="Calendario">
+
   <style>
   .social .item-body {
       padding: 10px 10px 63px; !important
@@ -25,52 +26,55 @@
     z-index: 2;
     display: block;
     margin: -1px;
-
     border-width: 1px;
     border-style: solid;
     font-size: 16px;
 }
+.col-50{
+    padding: 16px;
+}
+.row{
+    padding: 0;
+}
+
   </style>
   <ion-content class="social">
-    <ion-list>
-        <ion-item ng-repeat="data2 in calendario">
-<h1>{{data2.title}}<h1>
+  <div style="padding: 16px">
+        <div ng-repeat="data2 in visible">
             <div class="item-featured">
-                <div class="img" style="background-image: url(http://sistemex.com/apps/redconcreta/redConcreta/public/img/calendario/{{data2.image}});"></div>
+                <div ng-click="ver(data2.ind)" class="img" style="background-image: url(http://sistemex.com/apps/redconcreta/redConcreta/public/img/calendario/{{data2.image}});"></div>
             </div>
-            <div class="item-body">
-                <div class="tabs static tabs-icon-left comment">
-                    <a class="subdued pull-right more"><i class="icon ion-more"></i></a>
-                    <a class="tab-item" ng-click="agendar(data2.title, data2.description, data2.start, data2.end)">
-                        <i class="icon ion-calendar"></i>
-                        Agendar
-                    </a>
-                    <a class="subdued pull-right more"><i class="icon ion-more"></i></a>
-                    <a class="tab-item" ng-click="reservar(data2)">
-                        <i class="icon ion-calendar"></i>
-                        Reservar
-                    </a>
+            <div ng-show="data2.visible">
+                <div class="row" >
+                    <div class="col-50" style="box-shadow: 0px 0px 2px #aaa;">
+                        <h2 style="font-size: 16px; color:#ff2b5a; font-weight: bold">{{data2.title}}
+                        </h2>
+                        <div style="font-size: 12px; margin-top: 16px; color:#ff727d">{{data2.description}}
+                        </div>
+                    </div>
+                    <div class="col-50" style="text-align: right; box-shadow: 0px 0px 2px #aaa;">
+                        <i class="icon ion-ios-navigate" style="font-size:50px;color:#ff2b5a;"></i>
+                        <div style="font-size: 12px;color:#ff727d">Costo del Evento
+                        </div>
+                        <div style="font-size: 16px; color:#ff2b5a;font-weight: bold">$ {{data2.costo}}
+                        </div>
+                    </div>
                 </div>
-
-                <div class="content">
-                    <strong>{{data2.descripcion}} </strong>
+                <div class="row" style="width: 90%; margin: 16px auto; background: #ffe1e7; border-width: 1px;
+    border-style: solid;border-radius: 4px; border-color:#ff2b5a">
+                    <div class="col-50" style="text-align: center; padding: 8px">
+                        <div style="font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data2.start.substr(0, 10)| date:"dd-MM-yyyy"}} </strong>fecha</div>
+                    </div>
+                    <div style="font-size: 16px; color:#ff2b5a;font-weight: bold;padding: 8px">|</div>
+                    <div class="col-50" style="text-align: center;padding: 8px">
+                        <div style="font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data2.start.substr(10, 14)}} </strong>hora</div>
+                    </div>
                 </div>
-
-                <div class="user">
-                    <span class="pull-right" style="font-size: small;">Costo: {{data2.costo}}</span>
-                </div>
-                <div class="user">
-                    <span class="pull-right" style="font-size: small;">Cupo: {{data2.cupo}}</span>
-                </div>
-                <div class="user">
-                    <span class="pull-right" style="font-size: small;">Inicia: {{data2.start}}</span>
-                </div>
-                <div class="user">
-                    <span class="pull-right" style="font-size: small;">Finaliza: {{data2.end}}</span>
-                </div>
+                <button ng-click="ir(data2)" class="button" style="background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
+                  Inscribir
+                </button>
             </div>
-        </ion-item>
-
-    </ion-list>
+        </div>
+    </div>
   </ion-content>
 </ion-view>
