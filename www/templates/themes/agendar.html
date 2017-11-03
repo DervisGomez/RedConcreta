@@ -36,7 +36,7 @@
     border-radius:16px;
   }
 </style>
-      <div class="row" style="padding: 0;position: absolute; top:0; box-shadow:0px 0px 2px #888;z-index:101">
+      <div ng-show="data.aparece5" class="row" style="padding: 0;position: absolute; top:0; box-shadow:0px 0px 2px #888;z-index:101">
         <div class="col-50" style="background: #ff2b5a; padding:16px; text-align: left">
           <div style="font-size:12px; color: white;">Precio Total</div>
           <div style="font-size:20px;font-weight: bold; color: white;margin-top:8px">$ {{data.total}}</div>
@@ -54,8 +54,29 @@
           <div ng-show="data.aparece2" style="font-size:20px;font-weight: bold; color:#ff2b5a;margin-top:8px">{{data.cantidad}} <i ng-click="masparticipantes()" class="icon ion-plus-circled" style="font-size:20px; margin-left:16px;position: relative;z-index:100"></i></div>
         </div>
       </div>
+      <div ng-show="data.aparece6" style="width: 100%; text-align: center; background: #ff2b5a; color: white;padding:16px">
+        <h2 style="font-size:18px;color:white"> Gracias por comprar en RED concreta</h2>
+      </div>
     <ion-content>
       <div class="contenido" ng-show="true">
+
+        <div ng-show="data.aparece6" style="text-align: left;">
+          <h3 style="font-size:16px;color:#ff2b5a">{{data.title}}</h3>
+            <div class="item-featured">
+                <div style="width:100%;">
+                  <img style="width:90%;margin:0 auto" src="http://sistemex.com/apps/redconcreta/redConcreta/public/img/calendario/{{data.image}}">
+                </div>
+            </div>
+          <h3 style="font-size:16px;color:#ff2b5a"><strong>Fecha del evento: </strong>{{data.fechainicio.substr(0, 10)| date:"dd-MM-yyyy"}}</h3>
+          <div ng-repeat="data3 in cantidadparticipante">
+            <h3 style="font-size:16px;color:#ff2b5a"><strong>Participante: </strong>{{data3.nombre}} {{data3.apellido}}</h3>
+          </div>
+          <h3 style="font-size:16px;color:#ff2b5a"><strong>Monto total: </strong>$ {{data.total}}</h3><br>
+          <button ng-click="terminar()" class="button" style="border-radius: 32px;background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
+                  Ver más eventos
+                </button>
+        </div>
+
         <div ng-show="data.aparece3" ng-repeat="data2 in cantidadparticipante">
           <img src="img/red.png" style="width:100px;margin:0 auto" />
           <h2 style="color:#ff2b5a"> Ingrese Datos del participante<h1>
@@ -79,7 +100,7 @@
             <img src="img/Icon_Birthday.png" style="width:32px" />
             <div class="list" style="background:#ff2b5a; padding-top:0;padding-bottom:2px;display:inline-block; width:80%">
               <label class="item item-input item-floating-label">
-                <input type="text" placeholder="Fecha de Cumpleaños" ng-model="data2.fechanacimiento" style="border-bottom-width:1px;border-bottom-color:#ff2b5a">
+                <input type="text" onfocus="(this.type='date')" placeholder="Fecha de Cumpleaños" ng-model="data2.fechanacimiento" style="border-bottom-width:1px;border-bottom-color:#ff2b5a;border: none;border-radius: 52px;color: white;font-size:large;font-weight:bold;font-family: 'Roboto', sans-serif;" id="date">
               </label>
             </div>
           </div>
@@ -87,7 +108,7 @@
             <img src="img/Icon_Phone.png" style="width:32px" />
             <div class="list" style="background:#ff2b5a; padding-top:0;padding-bottom:2px;display:inline-block; width:80%">
               <label class="item item-input item-floating-label">
-                <input type="text" placeholder="Teléfono" ng-model="data2.telefono" style="border-bottom-width:1px;border-bottom-color:#ff2b5a">
+                <input type="number" placeholder="Teléfono" ng-model="data2.telefono" style="border-bottom-width:1px;border-bottom-color:#ff2b5a">
               </label>
             </div>
           </div>
@@ -164,9 +185,9 @@
             </div>            
           </div>          
           <br> 
-          <button ng-click="pagarTotal()" class="button" style="background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
+          <button ng-click="pagarTotal()" class="button" style="border-radius: 32px;background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
                   Pagar
-                </button>       
+                </button>     
         </div>
       </div>
     </ion-content>

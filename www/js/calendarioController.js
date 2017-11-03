@@ -87,6 +87,9 @@ angular.module('ionium').controller(
 				$scope.data.aparece2=true;
 				$scope.data.aparece3=true;
 				$scope.data.aparece4=false;
+				$scope.data.aparece5=true;
+				$scope.data.aparece6=false;
+				$scope.data.title=ind.title;
 				$scope.data.fechainicio=ind.start;
 				$scope.data.image=ind.image;
 				$scope.data.precio=parseFloat(ind.costo);
@@ -193,7 +196,9 @@ angular.module('ionium').controller(
 								AuthService.setParticipantes($scope.cantidadparticipante[i]);
 							}
 							$ionicLoading.hide();
-							$scope.showAlert("Calendario","Inscripción exitosa");
+							$scope.data.aparece4=false;
+							$scope.data.aparece5=false;
+							$scope.data.aparece6=true;
 							
 					    },function (error) {
 					        $ionicLoading.hide();
@@ -210,17 +215,8 @@ angular.module('ionium').controller(
 				}
 			}
 
-
-
-
-			$scope.reservar = function(ind){
-				$scope.data.aparecer=true;
-				$scope.data.max=parseInt(ind.cupo);
-				if($scope.data.cantidad==undefined){
-					$scope.showAlert("Calendario","La cantidad de participantes en el evento es invalido");
-				}else{
-					$scope.data.cantidad=parseInt($scope.data.cantidad);
-				}
+			$scope.terminar=function(){
+				$scope.closeModal();
 			}
 
 			$scope.openModal = function() {
@@ -228,143 +224,6 @@ angular.module('ionium').controller(
 			};
 			$scope.closeModal = function() {
 			    $scope.modal.hide();
-			};
-			$scope.validadcantidad=function(){
-				if($scope.data.cantidad==undefined){
-					$scope.showAlert("Calendario","La cantidad de participantes en el evento es invalido");
-				}else{
-					$scope.cantidadparticipante= []
-					$scope.data.aparecer=true;
-					$scope.data.actual=1
-					$scope.data.participantes=$scope.data.actual+"/"+$scope.data.cantidad;
-					for (var i = 0; i < $scope.data.cantidad; i++){
-						$scope.cantidadparticipante.push({
-							idevento:$scope.data.id,
-							nombre:"",
-							apellido:"",
-							fechanacimiento:"",
-							telefono:""							
-						});
-					}
-					$scope.cardDetails = {
-					    number: "",
-					    cvc: 1,
-					    exp_month: 1,
-					    exp_year: 2,
-					};
-					$scope.participante.nombre="";
-					$scope.participante.fechanacimiento="";
-					$scope.participante.apellido="";
-					$scope.participante.telefono="";
-					console.log($scope.cantidadparticipante.length);
-				}
-			}
-			$scope.siguiente = function() {
-				if($scope.data.actual<$scope.data.cantidad){
-					if($scope.participante.nombre!=""&&$scope.participante.fechanacimiento!=""&&$scope.participante.apellido!=""&&$scope.participante.telefono!=""){
-						$scope.cantidadparticipante[$scope.data.actual-1].nombre=$scope.participante.nombre;
-						$scope.cantidadparticipante[$scope.data.actual-1].fechanacimiento=$scope.participante.fechanacimiento;
-						$scope.cantidadparticipante[$scope.data.actual-1].apellido=$scope.participante.apellido;
-						$scope.cantidadparticipante[$scope.data.actual-1].telefono=$scope.participante.telefono;
-						console.log($scope.cantidadparticipante[$scope.data.actual-1].nombre);
-						console.log($scope.cantidadparticipante[$scope.data.actual].nombre);
-						$scope.participante.nombre=$scope.cantidadparticipante[$scope.data.actual].nombre;
-						$scope.participante.fechanacimiento=$scope.cantidadparticipante[$scope.data.actual].fechanacimiento;
-						$scope.participante.apellido=$scope.cantidadparticipante[$scope.data.actual].apellido;
-						$scope.participante.telefono=$scope.cantidadparticipante[$scope.data.actual].telefono;
-						$scope.data.actual=$scope.data.actual+1;
-						$scope.data.participantes=$scope.data.actual+"/"+$scope.data.cantidad;
-					}else{
-						$scope.showAlert("Calendario","	Hay campos vacios");
-					}					
-				}else{
-					$scope.showAlert("Calendario","Esta en el último participante");
-				}
-			};
-			$scope.anterior = function() {
-			    if($scope.data.actual>1){
-			    	if($scope.participante.nombre!=""&&$scope.participante.fechanacimiento!=""&&$scope.participante.apellido!=""&&$scope.participante.telefono!=""){
-						$scope.cantidadparticipante[$scope.data.actual-1].nombre=$scope.participante.nombre;
-						$scope.cantidadparticipante[$scope.data.actual-1].fechanacimiento=$scope.participante.fechanacimiento;
-						$scope.cantidadparticipante[$scope.data.actual-1].apellido=$scope.participante.apellido;
-						$scope.cantidadparticipante[$scope.data.actual-1].telefono=$scope.participante.telefono;
-						$scope.data.actual=$scope.data.actual-1;
-						$scope.participante.nombre=$scope.cantidadparticipante[$scope.data.actual-1].nombre;
-						$scope.participante.fechanacimiento=$scope.cantidadparticipante[$scope.data.actual-1].fechanacimiento;
-						$scope.participante.apellido=$scope.cantidadparticipante[$scope.data.actual-1].apellido;
-						$scope.participante.telefono=$scope.cantidadparticipante[$scope.data.actual-1].telefono;
-						$scope.data.participantes=$scope.data.actual+"/"+$scope.data.cantidad;
-					}else{
-						$scope.showAlert("Calendario","	Hay campos vacios");
-					}
-				}else{
-					$scope.showAlert("Calendario","Esta en el primer participante");
-				}
-			};
-			$scope.guardar = function() {
-				$ionicLoading.show({
-									content: 'Loading',
-									animation: 'fade-in',
-									showBackdrop: true,
-									maxWidth: 200,
-									showDelay: 0
-								});
-				console.log($scope.data.actual);
-				$scope.cantidadparticipante[$scope.data.actual-1].nombre=$scope.participante.nombre;
-				$scope.cantidadparticipante[$scope.data.actual-1].fechanacimiento=$scope.participante.fechanacimiento;
-				$scope.cantidadparticipante[$scope.data.actual-1].apellido=$scope.participante.apellido;
-				$scope.cantidadparticipante[$scope.data.actual-1].telefono=$scope.participante.telefono;
-				for (var i = 0; i < $scope.data.cantidad; i++){
-					console.log(i);
-					if($scope.cantidadparticipante[i].nombre==""||$scope.cantidadparticipante[i].fechanacimiento==""||$scope.cantidadparticipante[i].apellido==""||$scope.cantidadparticipante[i].telefono==""){
-						$scope.data.actual=i+1;
-						console.log($scope.data.actual);
-						$scope.participante.nombre=$scope.cantidadparticipante[$scope.data.actual-1].nombre;
-						$scope.participante.fechanacimiento=$scope.cantidadparticipante[$scope.data.actual-1].fechanacimiento;
-						$scope.participante.apellido=$scope.cantidadparticipante[$scope.data.actual-1].apellido;
-						$scope.participante.telefono=$scope.cantidadparticipante[$scope.data.actual-1].telefono;
-						$scope.data.participantes=$scope.data.actual+"/"+$scope.data.cantidad;
-						$ionicLoading.hide();
-						$scope.showAlert("Calendario","Faltan al menos un dato de un participante");
-						return;
-					}	
-				}
-				$scope.guardarParticipantes();
-			};
-
-			$scope.guardarParticipantes = function(){
-				if($scope.cardDetails.number!=undefined&&$scope.cardDetails.cvc!=undefined&&$scope.cardDetails.exp_month!=undefined&&$scope.cardDetails.exp_year!=undefined){
-					stripe.card.createToken($scope.cardDetails)
-					.then(function (response) {
-					    console.info('token created for card ending in ', response);
-					    var price=parseFloat($scope.data.precio)*parseInt($scope.data.cantidad);
-					    console.log(price);			      
-					    var payment = {
-					        token: response.id,
-					        price: price
-					    }
-					    AuthService.setPago(payment).then(function(response) {
-					    	console.log('successfully submitted payment for £', response);
-					    	for (var i = 0; i < $scope.data.cantidad; i++){
-								console.log($scope.cantidadparticipante[i]);
-								AuthService.setParticipantes($scope.cantidadparticipante[i]);
-							}
-							$ionicLoading.hide();
-							$scope.showAlert("Calendario","Inscripción exitosa");
-							$scope.data.aparecer=false;
-					    },function (error) {
-					        $ionicLoading.hide();
-					    	$scope.showAlert("Calendario","Ocurrio un error en el servidor"+error);
-					    });
-					},
-					function (error) {
-						$ionicLoading.hide();
-					    $scope.showAlert("Calendario","Ocurrio un error el pago no fue aceptado "+error);
-					});
-				}else{
-					$ionicLoading.hide();
-					$scope.showAlert("Calendario","Ha introducido los datos de la tarjeta incorrectamente");
-				}				
 			};
 
 		});/**
