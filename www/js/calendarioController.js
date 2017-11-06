@@ -9,7 +9,49 @@ angular.module('ionium').controller(
 			$scope.calendario.$loaded().then(function(){
 				var x=0;
 		        angular.forEach($scope.calendario, function(calen) {
-		            console.log(calen);
+		            $scope.formatearFecha(calen.start);
+		            var fe=calen.start.split(" ");
+			    	var a=fe[0].split("-");
+			    	var mes="";
+			    	switch(parseInt(a[1])){
+			    		case 1:
+			    			mes=" Ene "
+			    		break;
+			    		case 2:
+			    			mes=" Feb "
+			    		break;
+			    		case 3:
+			    			mes=" Mar "
+			    		break;
+			    		case 4:
+			    			mes=" Abr "
+			    		break;
+			    		case 5:
+			    			mes=" May "
+			    		break;
+			    		case 6:
+			    			mes=" Jun "
+			    		break;
+			    		case 7:
+			    			mes=" Jul "
+			    		break;
+			    		case 8:
+			    			mes=" Ago "
+			    		break;
+			    		case 9:
+			    			mes=" Sep "
+			    		break;
+			    		case 10:
+			    			mes=" Oct "
+			    		break;
+			    		case 11:
+			    			mes=" Nov "
+			    		break;
+			    		case 12:
+			    			mes=" Dic "
+			    		break;
+			    	}
+			    	console.log(a[2]+mes+a[0]);
 		            $scope.visible.push({
 		            	id:calen.$id,
 		            	costo:calen.costo,
@@ -17,6 +59,7 @@ angular.module('ionium').controller(
 		            	description:calen.description,
 		            	image:calen.image,
 		            	start:calen.start,
+		            	fecha:a[2]+mes+a[0],
 		            	end:calen.end,
 		            	title:calen.title,
 		            	direccion:calen.direccion,
@@ -26,6 +69,12 @@ angular.module('ionium').controller(
 		            x++;
 		        });
 		    });
+
+		    $scope.formatearFecha=function(fecha){
+		    	var fe=fecha.split(" ");
+		    	var a=fe[0].split("-");
+		    	console.log(a[1]);
+		    }
 
 		    $scope.ver=function(id){
 		    	console.log(id)
@@ -93,6 +142,7 @@ angular.module('ionium').controller(
 				$scope.data.aparece5=true;
 				$scope.data.aparece6=false;
 				$scope.data.title=ind.title;
+				$scope.data.fecha=ind.fecha;
 				$scope.data.fechainicio=ind.start;
 				$scope.data.image=ind.image;
 				$scope.data.precio=parseFloat(ind.costo);
@@ -118,7 +168,7 @@ angular.module('ionium').controller(
 				    exp_month:"",
 				    exp_year: "",
 				    address_zip:""
-				};
+				}
 			 	$scope.openModal();
 			}
 
