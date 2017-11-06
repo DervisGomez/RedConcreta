@@ -83,6 +83,7 @@ angular.module('ionium').controller(
 			$scope.ir = function(ind){
 				console.log(ind.image)
 				$scope.data.id=ind.id;
+				$scope.data.direccion=ind.direccion;
 				$scope.data.max=parseInt(ind.cupo);
 				$scope.data.cantidad=parseInt(1);
 				$scope.data.aparece=false;

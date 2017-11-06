@@ -54,25 +54,37 @@
           <div ng-show="data.aparece2" style="font-size:20px;font-weight: bold; color:#ff2b5a;margin-top:8px">{{data.cantidad}} <i ng-click="masparticipantes()" class="icon ion-plus-circled" style="font-size:20px; margin-left:16px;position: relative;z-index:100"></i></div>
         </div>
       </div>
-      <div ng-show="data.aparece6" style="width: 100%; text-align: center; background: #ff2b5a; color: white;padding:20px">
+      <div ng-show="false" style="width: 100%; text-align: center; background: #ff2b5a; color: white;padding:20px">
         <div style="font-size:20px;color:white"> Gracias por comprar en RED concreta</div>
       </div>
     <ion-content>
       <div class="contenido" ng-show="true">
 
-        <div ng-show="data.aparece6" style="text-align: left;">
-          <h3 style="font-size:16px;color:#ff2b5a">{{data.title}}</h3>
-            <div class="item-featured">
-                <div style="width:100%;">
-                  <img style="width:100%;margin:0 auto" src="http://sistemex.com/apps/redconcreta/redConcreta/public/img/calendario/{{data.image}}">
-                </div>
+        <div ng-show="data.aparece6" style="text-align: left; margin-top:-90px">
+          <div class="item-featured">
+             <div style="width:100%;">
+              <img style="width:100%;margin:0 auto" src="img/Confirmacion.jpg">
             </div>
-          <h3 style="font-size:16px;color:#ff2b5a"><strong>Fecha del evento: </strong>{{data.fechainicio.substr(0, 10)| date:"dd-MM-yyyy"}}</h3>
-          <div ng-repeat="data3 in cantidadparticipante">
-            <h3 style="font-size:16px;color:#ff2b5a"><strong>Participante: </strong>{{data3.nombre}} {{data3.apellido}}</h3>
           </div>
-          <h3 style="font-size:16px;color:#ff2b5a"><strong>Monto total: </strong>$ {{data.total}}</h3><br>
-          <button ng-click="terminar()" class="button" style="border-radius: 32px;background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
+          <div style="text-align: center;padding-top: 16px;padding-bottom:20px">
+            <div style="font-size:20px;color:#ff2b5a; text-align: center;"><strong>{{data.title}}<strong></div>
+          </div>
+          <div class="row" style="width: 90%; margin: 16px auto; background: #ffe1e7; border-width: 1px;
+                    border-style: solid;border-radius: 4px; border-color:#ff2b5a">
+            <div class="col-50" style="color:#ff727d;text-align: left;">
+              Cuando:
+              <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data.fechainicio.substr(0, 10)| date:"dd-MM-yyyy"}} </strong></div>
+              <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data.fechainicio.substring(11,16)}} </strong></div>
+            </div>
+            <div class="col-50" style="padding-top:0;margin-top:16px;padding-bottom:0;margin-bottom:16px;color:#ff727d;text-align: left;border-left-width: 1px; border-left-style: solid;border-left-color:#ff727d">
+              <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data.direccion}} </strong></div>
+            </div>
+          </div>
+          <h3 style="font-size:16px;color:#ff2b5a"><strong>Participantes: </strong></h3>
+          <div ng-repeat="data3 in cantidadparticipante">
+            <h3 style="font-size:16px;color:#ff2b5a">{{data3.nombre}} {{data3.apellido}}</h3>
+          </div>
+          <button ng-click="terminar()" class="button" style="background:#ff2b5a; color:white; margin-bottom: 16px;margin-top: 16px; width: 100%">
                   Ver más eventos
                 </button>
         </div>
@@ -142,7 +154,7 @@
 
 
         <div ng-show="data.aparece4" >
-          <h3 style="font-size:16px;color:#ff2b5a"><strong>Fecha del evento: </strong>{{data.fechainicio|date : format : 'medium'}}</h3>
+          <h3 style="font-size:16px;color:#ff2b5a"><strong>Fecha del evento: </strong>{{data.fechainicio.substr(0, 10)| date:"dd-MM-yyyy"}} {{data.fechainicio.substring(11,16)}}</h3>
             <div ng-show="false" class="item-featured">
                 <div style="width:100%;">
                   <img style="width:90%;margin:0 auto" src="http://sistemex.com/apps/redconcreta/redConcreta/public/img/calendario/{{data.image}}">
