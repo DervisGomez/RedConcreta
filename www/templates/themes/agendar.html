@@ -72,8 +72,7 @@
           <div class="row" style="width: 90%; margin: 16px auto; background: #ffe1e7; border-width: 1px;
                     border-style: solid;border-radius: 4px; border-color:#ff2b5a">
             <div class="col-50" style="color:#ff727d;text-align: left;">
-              Cuando:
-              <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data.fechainicio.substr(0, 10)| date:"dd-MM-yyyy"}} </strong></div>
+              <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data.fechainicio.substr(0, 10)| date:"dd-MMM-yyyy"}} </strong></div>
               <div style="text-align: center;font-size: 12px;color:#ff727d"><strong style="font-size: 16px; color:#ff2b5a;">{{data.fechainicio.substring(11,16)}} </strong></div>
             </div>
             <div class="col-50" style="padding-top:0;margin-top:16px;padding-bottom:0;margin-bottom:16px;color:#ff727d;text-align: left;border-left-width: 1px; border-left-style: solid;border-left-color:#ff727d">
@@ -154,7 +153,7 @@
 
 
         <div ng-show="data.aparece4" >
-          <h3 style="font-size:16px;color:#ff2b5a"><strong>Fecha del evento: </strong>{{data.fechainicio.substr(0, 10)| date:"dd-MM-yyyy"}} {{data.fechainicio.substring(11,16)}}</h3>
+          <h3 style="font-size:16px;color:#ff2b5a"><strong>Fecha del evento: </strong>{{data.fechainicio.substr(0, 10)| date:"dd-MMM-yyyy"}} {{data.fechainicio.substring(11,16)}}</h3>
             <div ng-show="false" class="item-featured">
                 <div style="width:100%;">
                   <img style="width:90%;margin:0 auto" src="http://sistemex.com/apps/redconcreta/redConcreta/public/img/calendario/{{data.image}}">
