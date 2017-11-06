@@ -39,6 +39,7 @@ angular.module('ionium').controller(
 			    cvc: "",
 			    exp_month:"",
 			    exp_year: "",
+			    address_zip:""
 			};
 
 
@@ -110,6 +111,13 @@ angular.module('ionium').controller(
 					telefono:"",
 					fechanacimiento:""
 				}
+				$scope.cardDetails = {
+				    number: "",
+				    cvc: "",
+				    exp_month:"",
+				    exp_year: "",
+				    address_zip:""
+				};
 			 	$scope.openModal();
 			}
 
@@ -189,7 +197,7 @@ angular.module('ionium').controller(
 									maxWidth: 200,
 									showDelay: 0
 								});
-				if($scope.cardDetails.number!=undefined&&$scope.cardDetails.cvc!=undefined&&$scope.cardDetails.exp_month!=undefined&&$scope.cardDetails.exp_year!=undefined){
+				if($scope.cardDetails.number!=undefined&&$scope.cardDetails.cvc!=undefined&&$scope.cardDetails.exp_month!=undefined&&$scope.cardDetails.exp_year!=undefined&&$scope.cardDetails.address_zip!=""){
 					stripe.card.createToken($scope.cardDetails)
 					.then(function (response) {
 					    console.info('token created for card ending in ', response);
