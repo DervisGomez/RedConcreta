@@ -187,21 +187,21 @@
                 <div class="col" style="padding:0">
                   <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
                     <label class="item item-input item-floating-label">
-                      <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Mes" ng-model="cardDetails.exp_month" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min="1" max="12">
+                      <input ng-keyup='soMes($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="MM" ng-model="cardDetails.exp_month" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" >
                     </label>
                   </div>
                 </div>
                 <div class="col">
                   <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
                     <label class="item item-input item-floating-label">
-                      <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Año" ng-model="cardDetails.exp_year" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min"17" max="99">
+                      <input ng-keyup='soAnno($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="YY" ng-model="cardDetails.exp_year" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min"17">
                     </label>
                   </div>
                 </div>
                 <div class="col">
                   <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
                     <label class="item item-input item-floating-label">
-                      <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="CVV" ng-model="cardDetails.cvc" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min="100" max="999">
+                      <input ng-keyup='soCVV($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="CVV" ng-model="cardDetails.cvc" style="border-bottom-width:1px;border-bottom-color:#ff2b5a">
                     </label>
                   </div>
                 </div>

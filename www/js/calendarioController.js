@@ -9,7 +9,7 @@ angular.module('ionium').controller(
 			$scope.calendario.$loaded().then(function(){
 				var x=0;
 		        angular.forEach($scope.calendario, function(calen) {
-		            $scope.formatearFecha(calen.start);
+		        	console.log(calen);
 		            var fe=calen.start.split(" ");
 			    	var a=fe[0].split("-");
 			    	var mes="";
@@ -53,7 +53,7 @@ angular.module('ionium').controller(
 			    	}
 			    	console.log(a[2]+mes+a[0]);
 		            $scope.visible.push({
-		            	id:calen.$id,
+		            	id:calen.id,
 		            	costo:calen.costo,
 		            	cupo:calen.costo,
 		            	description:calen.description,
@@ -70,11 +70,26 @@ angular.module('ionium').controller(
 		        });
 		    });
 
-		    $scope.formatearFecha=function(fecha){
-		    	var fe=fecha.split(" ");
-		    	var a=fe[0].split("-");
-		    	console.log(a[1]);
-		    }
+			$scope.soMes=function ($event) {
+				var h=$scope.cardDetails.exp_month+"";
+				if($scope.cardDetails.exp_month<1||$scope.cardDetails.exp_month>12){
+					$scope.cardDetails.exp_month=parseInt(h.substring(0,h.length-1));
+				}				
+			}
+
+			$scope.soAnno=function ($event) {
+				var h=$scope.cardDetails.exp_year+"";
+				if($scope.cardDetails.exp_year>99){
+					$scope.cardDetails.exp_year=parseInt(h.substring(0,h.length-1));
+				}			
+			}
+
+			$scope.soCVV=function ($event) {
+				var h=$scope.cardDetails.cvc+"";
+				if(h.length>4){
+					$scope.cardDetails.cvc=parseInt(h.substring(0,h.length-1));
+				}			
+			}
 
 		    $scope.ver=function(id){
 		    	console.log(id)

@@ -92,7 +92,7 @@ app.service('DashList', function($state) {
 
       {
         id: 66,
-        title: 'Calendario',
+        title: 'Eventos',
         icon: 'img/Calendario.png',
         state: 'calendario()',
         authenticate:'!isAuthenticated',
