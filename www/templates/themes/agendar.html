@@ -160,61 +160,68 @@
                 </div>
             </div>
           <h2 style="font-size:20px;color:#ff2b5a;margin-top:16px"> Ingrese Datos de la tarjeta<h1>
-          <div style="width:100%">
-            <img src="img/Direccion_concreta.png" style="width:32px" />
-            <div style="padding:10px;display:inline-block;width:80%">
-              <div class="list" style="border-bottom-width: 1px; border-bottom-style: solid;border-bottom-color:#ffe1e7; padding-top:0;padding-bottom:2px; width:100%">
-                <label class="item item-input item-floating-label">
-                  <input type="text" placeholder="Dirección" ng-model="cardDetails.address_zip" style="border-bottom-width:1px;border-bottom-color:#ff2b5a">
-                </label>
-              </div>
-            </div>
-          </div>
-          <div style="width:100%">
-            <img src="img/Icon_Card.png" style="width:32px" />
-            <div style="padding:10px;display:inline-block;width:80%">
-              <div class="list" style="border-bottom-width: 1px; border-bottom-style: solid;border-bottom-color:#ffe1e7; padding-top:0;padding-bottom:2px; width:100%">
-                <label class="item item-input item-floating-label">
-                  <input type="number" placeholder="Numero" inputmode="numeric" pattern="[0-9]*" ng-model="cardDetails.number" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min="0" max="10000000000000000">
-                </label>
-              </div>
-            </div>
-          </div>
-          <div style="width:100%">
-            <img src="img/Icon_Calendar.png" style="width:32px;display:inline-block;" />
-            <div style="display:inline-block;width:80%">
-              <div class="row" style="padding:0; margin:0">
-                <div class="col" style="padding:0">
-                  <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
-                    <label class="item item-input item-floating-label">
-                      <input ng-keyup='soMes($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="MM" ng-model="cardDetails.exp_month" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" >
-                    </label>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
-                    <label class="item item-input item-floating-label">
-                      <input ng-keyup='soAnno($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="YY" ng-model="cardDetails.exp_year" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min"17">
-                    </label>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
-                    <label class="item item-input item-floating-label">
-                      <input ng-keyup='soCVV($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="CVV" ng-model="cardDetails.cvc" style="border-bottom-width:1px;border-bottom-color:#ff2b5a">
-                    </label>
-                  </div>
+
+
+          <form style="width:100%" action="" id="pay" name="pay" >
+
+            <div style="width:100%">
+              <img src="img/Icon_User.png" style="width:32px" />
+              <div style="padding:10px;display:inline-block;width:80%">
+                <div class="list" style="border-bottom-width: 1px; border-bottom-style: solid;border-bottom-color:#ffe1e7; padding-top:0;padding-bottom:2px; width:100%">
+                  <label class="item item-input item-floating-label">
+                    <input data-checkout="cardholderName" type="text" placeholder="Nombre" ng-model="cardDetails.address_zip" style="border-bottom-width:1px;border-bottom-color:#ff2b5a">
+                  </label>
                 </div>
               </div>
             </div>
-          </div>
-          <br>
-          <button ng-click="pagarTotal()" class="button" style="border-radius: 32px;background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
-                  Pagar
-                </button>
-                <button ng-show="data.aparece4" ng-click="closeModal()" class="button button-clear button-assertive" style"color: #ff2b5a; margin: 0 auto">
-            Cancelar
-          </button>
+            <div style="width:100%">
+              <img src="img/Icon_Card.png" style="width:32px" />
+              <div style="padding:10px;display:inline-block;width:80%">
+                <div class="list" style="border-bottom-width: 1px; border-bottom-style: solid;border-bottom-color:#ffe1e7; padding-top:0;padding-bottom:2px; width:100%">
+                  <label class="item item-input item-floating-label">
+                    <input data-checkout="cardNumber" type="number" placeholder="Numero" inputmode="numeric" pattern="[0-9]*" ng-model="cardDetails.number" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min="0" max="10000000000000000">
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div style="width:100%">
+              <img src="img/Icon_Calendar.png" style="width:32px;display:inline-block;" />
+              <div style="display:inline-block;width:80%">
+                <div class="row" style="padding:0; margin:0">
+                  <div class="col" style="padding:0">
+                    <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
+                      <label class="item item-input item-floating-label">
+                        <input data-checkout="cardExpirationMonth" ng-keyup='soMes($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="MM" ng-model="cardDetails.exp_month" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" >
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
+                      <label class="item item-input item-floating-label">
+                        <input data-checkout="cardExpirationYear" ng-keyup='soAnno($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="YYYY" ng-model="cardDetails.exp_year" style="border-bottom-width:1px;border-bottom-color:#ff2b5a" min"2017">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="list" style="background:#ffe1e7; padding:2px;display:inline-block; width:80%">
+                      <label class="item item-input item-floating-label">
+                        <input data-checkout="securityCode" ng-keyup='soCVV($event)' type="number" inputmode="numeric" pattern="[0-9]*" placeholder="CVV" ng-model="cardDetails.cvc" style="border-bottom-width:1px;border-bottom-color:#ff2b5a">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <button ng-click="pagarTotal()" class="button" style="border-radius: 32px;background:#ff2b5a; color:white; margin-bottom: 16px; width: 100%">
+                    Pagar
+                  </button>
+                  <button ng-show="data.aparece4" ng-click="closeModal()" class="button button-clear button-assertive" style"color: #ff2b5a; margin: 0 auto">
+              Cancelar
+            </button> 
+
+          </form>
+          
         </div>
       </div>
     </ion-content>

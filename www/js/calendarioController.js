@@ -79,7 +79,7 @@ angular.module('ionium').controller(
 
 			$scope.soAnno=function ($event) {
 				var h=$scope.cardDetails.exp_year+"";
-				if($scope.cardDetails.exp_year>99){
+				if($scope.cardDetails.exp_year>9999){
 					$scope.cardDetails.exp_year=parseInt(h.substring(0,h.length-1));
 				}			
 			}
@@ -104,7 +104,7 @@ angular.module('ionium').controller(
 			    exp_month:"",
 			    exp_year: "",
 			    address_zip:""
-			};
+			}
 
 
 			$ionicModal.fromTemplateUrl('templates/themes/agendar.html', {
@@ -143,8 +143,30 @@ angular.module('ionium').controller(
 			 	var error = function(message) { alert("Error: " + message); };
 				window.plugins.calendar.createEventInteractively(title,notes,startDate,endDate,success,error);
 			}
+function setPaymentMethodInfo(status, response) {
+	alert(status)
+	console.log(response);
+    if (status == 200) {
+        // do somethings ex: show logo of the payment method
+        var form = document.querySelector('#pay');
+
+        if (document.querySelector("input[name=paymentMethodId]") == null) {
+        	alert("8");
+            var paymentMethod = document.createElement('input');
+            paymentMethod.setAttribute('name', "paymentMethodId");
+            paymentMethod.setAttribute('type', "hidden");
+            paymentMethod.setAttribute('value', response[0].id);
+
+            form.appendChild(paymentMethod);
+        } else {
+        	alert("9");
+            document.querySelector("input[name=paymentMethodId]").value = response[0].id;
+        }
+    }
+};
 
 			$scope.ir = function(ind){
+			 	$scope.openModal();
 				console.log(ind.image)
 				$scope.data.id=ind.id;
 				$scope.data.direccion=ind.direccion;
@@ -184,7 +206,6 @@ angular.module('ionium').controller(
 				    exp_year: "",
 				    address_zip:""
 				}
-			 	$scope.openModal();
 			}
 
 			$scope.masparticipantes=function(){
@@ -264,40 +285,60 @@ angular.module('ionium').controller(
 									showDelay: 0
 								});
 				if($scope.cardDetails.number!=undefined&&$scope.cardDetails.cvc!=undefined&&$scope.cardDetails.exp_month!=undefined&&$scope.cardDetails.exp_year!=undefined&&$scope.cardDetails.address_zip!=""){
-					stripe.card.createToken($scope.cardDetails)
-					.then(function (response) {
-					    console.info('token created for card ending in ', response);
-					    var price=parseFloat($scope.data.precio)*parseInt($scope.data.cantidad);
-					    console.log(price);			      
-					    var payment = {
-					        token: response.id,
-					        price: $scope.data.total
-					    }
-					    AuthService.setPago(payment).then(function(response) {
-					    	console.log('successfully submitted payment for £', response);
-					    	for (var i = 0; i < $scope.cantidadparticipante.length; i++){
-								console.log($scope.cantidadparticipante[i]);
-								AuthService.setParticipantes($scope.cantidadparticipante[i]);
-							}
-							$ionicLoading.hide();
-							$scope.data.aparece4=false;
-							$scope.data.aparece5=false;
-							$scope.data.aparece6=true;
-							
-					    },function (error) {
-					        $ionicLoading.hide();
-					    	$scope.showAlert("Calendario","Ocurrio un error en el servidor"+error);
-					    });
-					},
-					function (error) {
-						$ionicLoading.hide();
-					    $scope.showAlert("Calendario","Ocurrio un error el pago no fue aceptado "+error);
-					});
+					console.log($scope.cardDetails.cvc);
+					var key="TEST-babe268e-4653-4666-b374-104d22ee885b"
+					Mercadopago.setPublishableKey(key);
+					/*Mercadopago.getPaymentMethod({
+	                    "bin": 4509953
+	                }, setPaymentMethodInfo);*/
+	                var $form = document.querySelector('#pay');
+	                Mercadopago.createToken($form, sdkResponseHandler);
 				}else{
 					$ionicLoading.hide();
 					$scope.showAlert("Calendario","Ha introducido los datos de la tarjeta incorrectamente");
 				}
 			}
+
+			function sdkResponseHandler(status, response) {
+				console.log(" 2- " +JSON.stringify(response));
+			    if (status != 200 && status != 201) {
+			        alert("verify filled data");
+			        $scope.showAlert("Calendario","verify filled data");
+			        $ionicLoading.hide();
+			    }else{
+			    	console.info('token created for card ending in ', response);
+					var price=parseFloat($scope.data.precio)*parseInt($scope.data.cantidad);
+					console.log(price);			      
+					var payment = {
+					    token: response.id,
+					    price: $scope.data.total
+					}
+					AuthService.setPago(payment).then(function(response) {
+					    console.log('successfully submitted payment for £', response);
+					    for (var i = 0; i < $scope.cantidadparticipante.length; i++){
+							console.log($scope.cantidadparticipante[i]);
+							AuthService.setParticipantes($scope.cantidadparticipante[i]);
+						}
+						$ionicLoading.hide();
+						$scope.data.aparece4=false;
+						$scope.data.aparece5=false;
+						$scope.data.aparece6=true;
+							
+					},function (error) {
+					    $ionicLoading.hide();
+					  	$scope.showAlert("Calendario","Ocurrio un error en el servidor"+error);
+					});
+        /*var form = document.querySelector('#pay');
+
+        var card = document.createElement('input');
+        card.setAttribute('name',"token");
+        card.setAttribute('type',"hidden");
+        card.setAttribute('value',response.id);
+        form.appendChild(card);
+        doSubmit=true;*/
+        //form.submit();
+			    }
+			};
 
 			$scope.terminar=function(){
 				$scope.closeModal();
