@@ -103,7 +103,8 @@ angular.module('ionium').controller(
 			    cvc: "",
 			    exp_month:"",
 			    exp_year: "",
-			    address_zip:""
+			    address_zip:"",
+				correo:""
 			}
 
 
@@ -143,27 +144,6 @@ angular.module('ionium').controller(
 			 	var error = function(message) { alert("Error: " + message); };
 				window.plugins.calendar.createEventInteractively(title,notes,startDate,endDate,success,error);
 			}
-function setPaymentMethodInfo(status, response) {
-	alert(status)
-	console.log(response);
-    if (status == 200) {
-        // do somethings ex: show logo of the payment method
-        var form = document.querySelector('#pay');
-
-        if (document.querySelector("input[name=paymentMethodId]") == null) {
-        	alert("8");
-            var paymentMethod = document.createElement('input');
-            paymentMethod.setAttribute('name', "paymentMethodId");
-            paymentMethod.setAttribute('type', "hidden");
-            paymentMethod.setAttribute('value', response[0].id);
-
-            form.appendChild(paymentMethod);
-        } else {
-        	alert("9");
-            document.querySelector("input[name=paymentMethodId]").value = response[0].id;
-        }
-    }
-};
 
 			$scope.ir = function(ind){
 			 	$scope.openModal();
@@ -204,7 +184,8 @@ function setPaymentMethodInfo(status, response) {
 				    cvc: "",
 				    exp_month:"",
 				    exp_year: "",
-				    address_zip:""
+				    address_zip:"",
+				    correo:""
 				}
 			}
 
@@ -284,13 +265,13 @@ function setPaymentMethodInfo(status, response) {
 									maxWidth: 200,
 									showDelay: 0
 								});
-				if($scope.cardDetails.number!=undefined&&$scope.cardDetails.cvc!=undefined&&$scope.cardDetails.exp_month!=undefined&&$scope.cardDetails.exp_year!=undefined&&$scope.cardDetails.address_zip!=""){
+				if($scope.cardDetails.correo!=undefined&&$scope.cardDetails.number!=undefined&&$scope.cardDetails.cvc!=undefined&&$scope.cardDetails.exp_month!=undefined&&$scope.cardDetails.exp_year!=undefined&&$scope.cardDetails.address_zip!=""){
 					console.log($scope.cardDetails.cvc);
 					var key="TEST-babe268e-4653-4666-b374-104d22ee885b"
 					Mercadopago.setPublishableKey(key);
-					/*Mercadopago.getPaymentMethod({
-	                    "bin": 4509953
-	                }, setPaymentMethodInfo);*/
+					Mercadopago.getPaymentMethod({
+	                    "bin": $scope.cardDetails.number
+	                }, setPaymentMethodInfo);
 	                var $form = document.querySelector('#pay');
 	                Mercadopago.createToken($form, sdkResponseHandler);
 				}else{
@@ -298,6 +279,27 @@ function setPaymentMethodInfo(status, response) {
 					$scope.showAlert("Calendario","Ha introducido los datos de la tarjeta incorrectamente");
 				}
 			}
+			
+			function setPaymentMethodInfo(status, response) {
+				console.log(response);
+			    if (status == 200) {
+			        // do somethings ex: show logo of the payment method
+			        $scope.metodo={method:response[0].id}
+			        var form = document.querySelector('#pay');
+
+			        if (document.querySelector("input[name=paymentMethodId]") == null) {
+			            var paymentMethod = document.createElement('input');
+			            paymentMethod.setAttribute('name', "paymentMethodId");
+			            paymentMethod.setAttribute('type', "hidden");
+			            paymentMethod.setAttribute('value', response[0].id);
+
+			            //form.appendChild(paymentMethod);
+			        } else {
+			        	$scope.metodo={method:""}
+			            document.querySelector("input[name=paymentMethodId]").value = response[0].id;
+			        }
+			    }
+			};
 
 			function sdkResponseHandler(status, response) {
 				console.log(" 2- " +JSON.stringify(response));
@@ -311,8 +313,12 @@ function setPaymentMethodInfo(status, response) {
 					console.log(price);			      
 					var payment = {
 					    token: response.id,
-					    price: $scope.data.total
+					    price: $scope.data.total,
+					    description:$scope.data.title,
+					    email:$scope.cardDetails.correo,
+					    method:$scope.metodo.method
 					}
+					console.log(payment);
 					AuthService.setPago(payment).then(function(response) {
 					    console.log('successfully submitted payment for £', response);
 					    for (var i = 0; i < $scope.cantidadparticipante.length; i++){
