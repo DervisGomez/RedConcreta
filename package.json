@@ -4,6 +4,7 @@
     "description": "Red Concreta",
     "dependencies": {
         "angular-stripe": "^5.0.0",
+        "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
         "cordova-plugin-calendar": "^4.6.0",
         "cordova-plugin-geolocation": "^2.4.3",
@@ -32,6 +33,7 @@
     "cordovaPlatforms": [],
     "cordova": {
         "platforms": [
+            "android",
             "ios"
         ],
         "plugins": {

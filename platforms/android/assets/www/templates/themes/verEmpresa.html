@@ -1,0 +1,184 @@
+<ion-view view-title="Perfil" class="">
+  <style>
+
+.imagenperfil{
+  position: relative; !important
+    top: 50px; !important
+}
+
+.item-icon-left .icon2 {
+position: relative;
+top: 40px;
+left: -40px;
+}
+
+.item-icon-left .icon2 {
+    left: 11px;
+}
+.item{
+  background-color: ghostwhite;!important
+}
+.item-icon-left .icon2,
+.item-icon-right .icon2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  position: absolute;
+  top: -31px;
+  height: 100%;
+  font-size: 32px; }
+  .item-icon-left .icon2:before,
+  .item-icon-right .icon2:before {
+    display: block;
+    width: 32px;
+    text-align: center; }
+  </style>
+  <ion-content style="background-color: ghostwhite;" class="me">
+
+    <ion-refresher pulling-text="Pull To Refresh" on-refresh="refreshTasks()"
+            refreshing-text="Fetching ..." refreshing-icon="ion-loading-b"
+          ></ion-refresher>
+
+    <div class="cover" style="background-image:url(http://sistemex.com/apps/redconcreta/redConcreta/public/img/empresas/{{data2.url}});">
+        <div class="profile">
+            <div class="img item item-right item-image imagenperfil" style="position:relative;top:50px;" >
+              <img firebase-src="empresaLogo/{{data3.url}}">
+
+                  <!--.....................loop........................................................-->
+
+            </div>
+
+
+            <div class="name" style="text-shadow: 0px 2px 2px black;position:relative;top:30px;font-weight: bold;font-family: Roboto, Gadget, sans-serif;font-size: x-large;">
+              {{data2.razon_social}}</div>
+
+
+        </div>
+        <div  style="position:relative;top:210px;right:10px">
+          <ionic-ratings ratingsobj='ratingsObject' index='$index'></ionic-ratings>
+        </div>
+
+        <div  style="position:relative;top:182px;left:190px;color:rgb(196, 58, 70)">
+          <a  class="tab-item" ng-click="shareAnywhere(data2.descripcion, data2.razon_social, data2.url, data2.web)">
+              <i  class="icon ion-share"></i>
+          </a>
+        </div>
+
+    </div>
+
+    <div style="position: relative;top: 60px;color:rgb(196, 58, 70);font-family: Montserrat;font-size:initial;">
+{{data2.descripcion}}
+    </div>
+    <div  style="position: relative;top: 90px;">
+
+      <ks-swiper-container swiper="swiper" on-ready="onReadySwiper(swiper)" slides-per-view="2"
+    slides-per-column="0"
+    space-between="0"
+    pagination-is-active="false"
+    pagination-clickable="false"
+    show-nav-buttons="false"
+    loop="false"
+    autoplay="1000"
+    initial-slide="2"
+    direction="horizontal" override-parameters="{effect: 'coverflow',coverflow: {rotate: 50,stretch: 0,depth: 100,modifier: 0,centeredSlides: true,slideShadows : true}}">
+          <ks-swiper-slide   ng-repeat="img in data5">
+              <img ng-click="showImages($index);"  ng-src="{{img.url}}"  >
+          </ks-swiper-slide>
+      </ks-swiper-container>
+
+
+
+    </div>
+
+    <div  style="position: relative;top: 90px;">
+<h2 style="color:rgb(196, 58, 70);position:relative;top:30px;font-weight: bold;font-family: Montserrat;font-size: xx-large;">Promociones</h2>
+<div   style="position: relative;top: 60px;">
+      <ks-swiper-container swiper="swiper" on-ready="onReadySwiper(swiper)" slides-per-view="1"
+    slides-per-column="0"
+    space-between="0"
+    pagination-is-active="false"
+    pagination-clickable="false"
+    show-nav-buttons="false"
+    loop="false"
+    autoplay="1000"
+    initial-slide="2"
+    direction="horizontal" override-parameters="{effect: 'coverflow',coverflow: {rotate: 50,stretch: 0,depth: 100,modifier: 0,slideShadows : true}}">
+          <ks-swiper-slide ng-if="promocion.idempresa==idempresaPromocion"    ng-repeat="promocion in data9">
+              <img  style="width:100%;" ng-click="verpromocion($index)"  firebase-src="promociones/{{promocion.urlpromocion}}"  >
+          </ks-swiper-slide>
+      </ks-swiper-container>
+
+</div>
+
+    </div>
+
+    <div style="position: relative;top: 150px;background-color: ghostwhite;">
+
+      <h2 style="color:rgb(196, 58, 70);position:relative;top:30px;font-weight: bold;font-family: Montserrat;font-size: xx-large;">Contacto</h2>
+      <div  style="position: relative;top: 40px;background-color: ghostwhite;">
+
+      <ion-list style="background-color: ghostwhite;">
+
+      <ion-item  class="item item-icon-left  button-fab">
+        <i class="icon ion-email"></i>
+      <span style="color:rgb(196, 58, 70)"> <a class=" button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"   ng-href="mailto:{{data2.email}}"> {{data2.email}} </a> </span>
+      </ion-item>
+
+      <ion-item  style="position: relative;top: -10px;" class="item item-icon-left  button-fab">
+        <i class="icon ion-ios-telephone"></i>
+        <span style="color:rgb(196, 58, 70)"><a class="button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"  ng-href="tel: {{data2.telefono}}">{{data2.telefono}}</a></span>
+      </ion-item>
+      <ion-item ng-if="data2.telefono2" style="position: relative;top: -10px;" class="item item-icon-left  button-fab">
+        <i class="icon ion-ios-telephone"></i>
+        <span style="color:rgb(196, 58, 70)"><a class="button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"  ng-href="tel: {{data2.telefono2}}">{{data2.telefono2}}</a></span>
+      </ion-item>
+      <ion-item ng-if="data2.telefono3" style="position: relative;top: -10px;" class="item item-icon-left  button-fab">
+        <i class="icon ion-ios-telephone"></i>
+        <span style="color:rgb(196, 58, 70)"><a class="button-flat" style="color:rgb(196, 58, 70);text-decoration: none;"  ng-href="tel: {{data2.telefono3}}">{{data2.telefono3}}</a></span>
+      </ion-item>
+      <ion-item ng-if="data2.web" style="position: relative;top: -15px;" class="item item-icon-left button-fab">
+        <i class="icon ion-ios-world"></i>
+      <span style="color:rgb(196, 58, 70)"><a class=" button-flat" style="color:rgb(196, 58, 70);text-decoration: none;" ng-href="{{data2.web}}" onclick='window.open(this.href, "_system", "location=yes"); return false;'>{{data2.web}}</a></span>
+<hr>
+      </ion-item>
+
+      <ion-item ng-click="launchNavigator(data2.razon_social);" class="item item-icon-left  button-fab" style="white-space: inherit;position: relative;top: -25px;" >
+        <i title="{{data2.direccion}}" animation="fade" class="icon2 ion-location tooltip" ></i>
+
+        <img  src="img/mapa.png" width="100px" style="position: relative;float: right;">
+      <span style="color:rgb(196, 58, 70)">  {{data2.direccion}} </span>
+      </ion-item>
+
+      <ion-item class="item item-icon-left  button-fab" style="white-space: inherit;position: relative;top: -35px;" ng-click="verface(data2.idempresa)">
+
+        <i class="social-button-square-facebook"></i>
+      </ion-item>
+
+
+      <!--ion-item class="item item-divider">
+        Social
+      </ion-item>
+      <ion-item class="item item-icon-left item-icon-right ink" ng-click="verface(data2.id)">
+        <i class="icon ion-android-list"></i>
+        Timeline
+        <i class="icon ion-ios-arrow-forward"></i>
+      </ion-item>
+      <ion-item class="item item-icon-left item-icon-right ink" ng-click="verempresafoto(data2.id)">
+        <i class="icon ion-images"></i>
+        Fotos
+        <i class="icon ion-ios-arrow-forward"></i>
+      </ion-item-->
+
+      </ion-list>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>
