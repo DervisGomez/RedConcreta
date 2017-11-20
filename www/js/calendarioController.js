@@ -229,7 +229,6 @@ angular.module('ionium').controller(
 			}
 
 			$scope.annadir=function(){
-				console.log("hola");
 				$scope.data.cantidad=$scope.data.cantidad+1;
 				$scope.data.total=$scope.data.precio*$scope.data.cantidad;
 				$scope.cantidadparticipante.push({
@@ -279,7 +278,7 @@ angular.module('ionium').controller(
 					$scope.showAlert("Calendario","Ha introducido los datos de la tarjeta incorrectamente");
 				}
 			}
-			
+
 			function setPaymentMethodInfo(status, response) {
 				console.log(response);
 			    if (status == 200) {

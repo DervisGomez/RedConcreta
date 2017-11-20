@@ -18,6 +18,7 @@ app.controller('FbFriendsCtrl', function($scope, $http, $ionicLoading) {
 	    	$scope.more = true;
 	    	$ionicLoading.hide();
 	    }, function(error) {
+	    	$ionicLoading.hide();
 	        alert("Error: " + error);
 	    });
     };
@@ -47,69 +48,63 @@ app.controller('FbFeedsCtrl', function($scope, $http,AuthService, $ionicLoading,
 	AuthService.verEmpresa(data).then(function(res) {
 		// res holds your data
 		$scope.data2 = res;
-
-
-    	user = JSON.parse(user);
+    	if (user)
+    		user = JSON.parse(user);
 			//user =JSON.stringify(user);
 
-    $scope.loadFeeds = function(){
-    	$ionicLoading.show();
-    	$http.get("https://graph.facebook.com/"+$scope.data2.facebook+"/feed", {params: {access_token: user.access_token, fields: "from,full_picture,message,created_time,icon,to,id,caption,link,picture,shares,likes.limit(1).summary(true),comments.limit(1).summary(true)", format: "json" }}).then(function(result) {
-	        $scope.feeds = result.data.data;
-    		next = result.data.paging.next;
-	    	$scope.$broadcast('scroll.refreshComplete');
-	    	$scope.more = true;
-	    	$ionicLoading.hide();
-	    }, function(error) {
-	        //alert("Error: " + error);
-	    });
-    };
-
-	$scope.loadMoreFeeds = function(){
-    	$http.get(next).then(function(result) {
-	   		$scope.feeds = $scope.feeds.concat(result.data.data);
-	   		if(result.data.paging.next){
-	   			$scope.more = true;
-	   			next = result.data.paging.next;
-	   		}else
-	   			$scope.more = false;
-	   		$scope.$broadcast('scroll.infiniteScrollComplete');
-	   	});
-    };
+		$scope.loadMoreFeeds = function(){
+	    	$http.get(next).then(function(result) {
+		   		$scope.feeds = $scope.feeds.concat(result.data.data);
+		   		if(result.data.paging.next){
+		   			$scope.more = true;
+		   			next = result.data.paging.next;
+		   		}else
+		   			$scope.more = false;
+		   		$scope.$broadcast('scroll.infiniteScrollComplete');
+		   	});
+	    };
 		if(user != null){
-
-$scope.loadFeeds();
-
+			$scope.loadFeeds();
 		}else{
 			$cordovaOauth.facebook(window.global.Facebook_APP_ID, ["email", "public_profile", "user_hometown", "user_posts", "user_friends", "user_about_me"]).then(function(result) {
-					displayData(result.access_token);
-
-
-
+				displayData(result.access_token);
 			}, function(error) {
-					//alert("Error: " + error);
+				//alert("Error: " + error);
 			});
 
 		}
 	});
 
-		function displayData(access_token){
-				$http.get("https://graph.facebook.com/v2.6/me", {params: {access_token: access_token, fields: "cover,email,name,about,gender,birthday,picture,taggable_friends,feed", format: "json" }}).then(function(result) {
-						result.data.access_token = access_token;
-						result.data.picture = 'https://graph.facebook.com/'+result.data.id+'/picture?type=large';
-					window.localStorage.setItem("ionium-fb", JSON.stringify(result.data));
-					$localStorage.currentUser = {
-							mail: result.data.email,
-							token: null,
-							rol: "Admin"
-					};
+	$scope.loadFeeds = function(){
+	    	$ionicLoading.show();
+	    	$http.get("https://graph.facebook.com/"+$scope.data2.facebook+"/feed", {params: {access_token: user.access_token, fields: "from,full_picture,message,created_time,icon,to,id,caption,link,picture,shares,likes.limit(1).summary(true),comments.limit(1).summary(true)", format: "json" }}).then(function(result) {
+		        $scope.feeds = result.data.data;
+	    		next = result.data.paging.next;
+		    	$scope.$broadcast('scroll.refreshComplete');
+		    	$scope.more = true;
+		    	$ionicLoading.hide();
+		    }, function(error) {
+		    	$ionicLoading.hide();
+		        //alert("Error: " + error);
+		    });
+	    };
 
+	function displayData(access_token){
+		$http.get("https://graph.facebook.com/v2.6/me", {params: {access_token: access_token, fields: "cover,email,name,about,gender,birthday,picture,taggable_friends,feed", format: "json" }}).then(function(result) {
+			result.data.access_token = access_token;
+			result.data.picture = 'https://graph.facebook.com/'+result.data.id+'/picture?type=large';
+			window.localStorage.setItem("ionium-fb", JSON.stringify(result.data));
+			$localStorage.currentUser = {
+				mail: result.data.email,
+				token: null,
+				rol: "Admin"
+			};
 					//$state.go('app.verempresa',{id:emp});
-					$state.go("app.fbfeeds", {id:$stateParams.id}, {reload:true});
-				}, function(error) {
-						alert("Error: " + error);
-				});
-		}
+			$state.go("app.fbfeeds", {id:$stateParams.id}, {reload:true});
+		}, function(error) {
+			alert("Error: " + error);
+		});
+	}
 
 })
 
