@@ -1,0 +1,131 @@
+commit d6265ab29e6698c1f6841a350fae872cea6a14d0
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Mon Nov 20 16:30:56 2017 -0430
+
+    otra prueba
+
+commit eea959ea3ec322dd8dff7500c69a2dc5cf628daa
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Mon Nov 20 09:22:43 2017 -0430
+
+    Iniciar prueba de facebook
+
+commit 1a5534b844ce835f3ffa18e1cb5256cf5dc664fd
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Thu Nov 16 23:00:39 2017 -0430
+
+    modificaciones mercadopago
+
+commit fb62529a7ec99144276ddda1c01456378b22a6a4
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Wed Nov 15 15:48:39 2017 -0430
+
+    Mercado Pago
+
+commit 8359275cceebed0c39cba3d8687d7b7288bc05b8
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Tue Nov 7 15:30:44 2017 -0430
+
+    titulo eventos
+
+commit f47b0cf307e812d1f4089bfbede7bcb25546dfa8
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Tue Nov 7 15:12:12 2017 -0430
+
+    longitud de input
+
+commit 6d754e5c439f7631397581e3f90664fcfffa5955
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Mon Nov 6 19:09:47 2017 -0430
+
+    fecha espannol
+
+commit 0d0ca471dcc0d9d9f153896a157f25f1f05c0b9e
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Mon Nov 6 16:18:43 2017 -0430
+
+    fecha formateada
+
+commit b4497ae3ecc9d4a8c756f2c380f4029817152e40
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Mon Nov 6 15:17:37 2017 -0430
+
+    imagen confirmacion
+
+commit 540e764dc5d14152cd2dcbf27dc09a373f158bc9
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Mon Nov 6 12:51:53 2017 -0430
+
+    direccion en la tarjeta
+
+commit 5495dcddcd3273a62142ebffb665fb3c67fd489a
+Author: System Administrator <root@MacBook-Pro-de-rafael.local>
+Date:   Sun Nov 5 08:13:06 2017 -0600
+
+    input number
+
+commit 53857c8fc7c56a8702ff92669ab5430851d5b2a2
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Fri Nov 3 19:02:09 2017 -0430
+
+    modificar ver evento
+
+commit 1fe5cf60929e77939c740c93482f6396b24243a0
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Fri Nov 3 16:37:29 2017 -0430
+
+    vista despues de pagar
+
+commit da505e34895ccce7c6d0ef6e5069e361bbb1d3ee
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Fri Nov 3 15:27:54 2017 -0430
+
+    cambios en diseño
+
+commit 06fe89583a5be9ff225840de4c6c77443fc21304
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Wed Nov 1 18:47:09 2017 -0430
+
+    boton reservar
+
+commit 6b8dca73aa8e41cd070748bf44cc5cdc068d05a9
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Tue Oct 31 23:37:28 2017 -0430
+
+    pago listo
+
+commit e9c855fee20ce477cb8fbe916138bdfd23222c81
+Author: DervisGomez <dervis@sistemex.com>
+Date:   Mon Oct 30 16:39:43 2017 -0430
+
+    formulario participantes
+
+commit 65434b33610b23945768fb31045acf8695f281d8
+Author: System Administrator <root@MacBook-Pro-de-rafael.local>
+Date:   Fri Oct 27 11:44:41 2017 -0500
+
+    cambios
+
+commit 3863341180a454aae1638f9a3f4a4b4f54096b80
+Author: rafael ortiz poot <rafaelortizpoot@MacBook-Pro-de-rafael.local>
+Date:   Thu Sep 21 17:32:44 2017 -0500
+
+    cambios
+
+commit 5ba34da254310f7f57149eb3ba353f0f189e56be
+Author: rafael ortiz poot <rafaelortizpoot@MacBook-Pro-de-rafael.local>
+Date:   Wed Sep 20 20:25:51 2017 -0500
+
+    cambios
+
+commit 64cb25dce446174b97f63b768f78f3404a57238d
+Author: System Administrator <root@MacBook-Pro-de-rafael.local>
+Date:   Wed Sep 20 13:49:31 2017 -0500
+
+    Primer commit
+
+commit 6fb84c28900b4cca8147366c7f11fe1d68e3bfd4
+Author: Rafael Dario <rafa@sistemex.com>
+Date:   Wed Sep 20 18:43:39 2017 +0000
+
+    Add readme.md
