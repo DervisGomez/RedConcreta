@@ -331,6 +331,8 @@ angular.module('ionium').controller(
 							
 					},function (error) {
 					    $ionicLoading.hide();
+					    console.log(error);
+					    console.log(error.statusText);
 					  	$scope.showAlert("Calendario","Ocurrio un error en el servidor"+error);
 					});
         /*var form = document.querySelector('#pay');
