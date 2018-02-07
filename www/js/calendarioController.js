@@ -72,7 +72,7 @@ angular.module('ionium').controller(
 
 			$scope.soMes=function ($event) {
 				var h=$scope.cardDetails.exp_month+"";
-				if($scope.cardDetails.exp_month<1||$scope.cardDetails.exp_month>12){
+				if($scope.cardDetails.exp_month<0||$scope.cardDetails.exp_month>12){
 					$scope.cardDetails.exp_month=parseInt(h.substring(0,h.length-1));
 				}				
 			}
@@ -146,47 +146,57 @@ angular.module('ionium').controller(
 			}
 
 			$scope.ir = function(ind){
-			 	$scope.openModal();
-				console.log(ind.image)
-				$scope.data.id=ind.id;
-				$scope.data.direccion=ind.direccion;
-				$scope.data.max=parseInt(ind.cupo);
-				$scope.data.cantidad=parseInt(1);
-				$scope.data.aparece=false;
-				$scope.data.aparece2=true;
-				$scope.data.aparece3=true;
-				$scope.data.aparece4=false;
-				$scope.data.aparece5=true;
-				$scope.data.aparece6=false;
-				$scope.data.title=ind.title;
-				$scope.data.fecha=ind.fecha;
-				$scope.data.fechainicio=ind.start;
-				$scope.data.image=ind.image;
-				$scope.data.precio=parseFloat(ind.costo);
-				$scope.data.total=parseFloat(ind.costo);
-				$scope.cantidadparticipante= [];
-				$scope.cantidadparticipante.push({
-							idevento:$scope.data.id,
-							nombre:"",
-							apellido:"",
-							fechanacimiento:"",
-							telefono:""	,
-							correo:""						
-						});
-				$scope.participante= {
-					nombre:"",
-					apellido:"",
-					telefono:"",
-					fechanacimiento:""
-				}
-				$scope.cardDetails = {
-				    number: "",
-				    cvc: "",
-				    exp_month:"",
-				    exp_year: "",
-				    address_zip:"",
-				    correo:""
-				}
+				if(ind.cupo>0){
+					if(parseFloat(ind.costo)==0){
+						$scope.data.botonPagar="Registrarse";
+					}else{
+						$scope.data.botonPagar="Pagar";
+					}
+				 	$scope.openModal();
+					console.log(ind.image)
+					$scope.data.id=ind.id;
+					$scope.data.direccion=ind.direccion;
+					$scope.data.max=parseInt(ind.cupo);
+					$scope.data.cantidad=parseInt(1);
+					$scope.data.aparece=false;
+					$scope.data.aparece2=true;
+					$scope.data.aparece3=true;
+					$scope.data.aparece4=false;
+					$scope.data.aparece5=true;
+					$scope.data.aparece6=false;
+					$scope.data.title=ind.title;
+					$scope.data.fecha=ind.fecha;
+					$scope.data.fechainicio=ind.start;
+					$scope.data.image=ind.image;
+					$scope.data.precio=parseFloat(ind.costo);
+					$scope.data.total=parseFloat(ind.costo);
+					
+					$scope.cantidadparticipante= [];
+					$scope.cantidadparticipante.push({
+								idevento:$scope.data.id,
+								nombre:"",
+								apellido:"",
+								fechanacimiento:"",
+								telefono:""	,
+								correo:""						
+							});
+					$scope.participante= {
+						nombre:"",
+						apellido:"",
+						telefono:"",
+						fechanacimiento:""
+					}
+					$scope.cardDetails = {
+					    number: "",
+					    cvc: "",
+					    exp_month:"",
+					    exp_year: "",
+					    address_zip:"",
+					    correo:""
+					}					
+				}else{
+					$scope.showAlert("Calendario","No hay cupos disponibles");
+				}				
 			}
 
 			$scope.masparticipantes=function(){
@@ -229,16 +239,20 @@ angular.module('ionium').controller(
 			}
 
 			$scope.annadir=function(){
-				$scope.data.cantidad=$scope.data.cantidad+1;
-				$scope.data.total=$scope.data.precio*$scope.data.cantidad;
-				$scope.cantidadparticipante.push({
-					idevento:$scope.data.id,
-					nombre:"",
-					apellido:"",
-					fechanacimiento:"",
-					telefono:""	,
-					correo:""					
-				});
+				if($scope.data.cantidad<$scope.data.max){
+					$scope.data.cantidad=$scope.data.cantidad+1;
+					$scope.data.total=$scope.data.precio*$scope.data.cantidad;
+					$scope.cantidadparticipante.push({
+						idevento:$scope.data.id,
+						nombre:"",
+						apellido:"",
+						fechanacimiento:"",
+						telefono:""	,
+						correo:""					
+					});
+				}else{
+					$scope.showAlert("Calendario","solo hay disponible "+$scope.data.max+" cupos");
+				}
 			}
 
 			$scope.irPagar=function(){
@@ -249,11 +263,33 @@ angular.module('ionium').controller(
 						return;
 					}	
 				}
-				$scope.data.cantidad=$scope.cantidadparticipante.length;
-				$scope.data.aparece3=false;
-				$scope.data.aparece4=true;
-				$scope.data.aparece2=true;
-				$scope.data.aparece=false;
+				if(parseFloat($scope.data.precio)==0){
+					$scope.data.cantidad=$scope.cantidadparticipante.length;
+					$scope.data.aparece3=false;
+					$scope.data.aparece=false;
+					$ionicLoading.show({
+									content: 'Loading',
+									animation: 'fade-in',
+									showBackdrop: true,
+									maxWidth: 200,
+									showDelay: 0
+								});
+					for (var i = 0; i < $scope.cantidadparticipante.length; i++){
+						console.log($scope.cantidadparticipante[i]);
+						AuthService.setParticipantes($scope.cantidadparticipante[i]);
+					}
+					$ionicLoading.hide();
+					$scope.data.aparece4=false;
+					$scope.data.aparece5=false;
+					$scope.data.aparece6=true;
+				}else{
+					$scope.data.cantidad=$scope.cantidadparticipante.length;
+					$scope.data.aparece3=false;
+					$scope.data.aparece4=true;
+					$scope.data.aparece2=true;
+					$scope.data.aparece=false;
+				}
+				
 			}
 
 			$scope.pagarTotal=function(){
